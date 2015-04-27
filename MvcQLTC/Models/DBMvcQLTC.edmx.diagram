@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0a059ae6b7a342dfb82b2db2c797da94" Name="Diagram1">
+        <EntityTypeShape EntityType="QLTC_MVCModel.DM_DVT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTC_MVCModel.DM_QUY" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTC_MVCModel.DM_THU_CHI" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTC_MVCModel.DM_TU_DIEN" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTC_MVCModel.GD_THU_CHI" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTC_MVCModel.LOG" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTC_MVCModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTC_MVCModel.USER" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="QLTC_MVCModel.FK_DM_QUY_DM_DVT" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTC_MVCModel.FK_GD_THU_CHI_DM_DVT" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTC_MVCModel.FK_DM_QUY_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTC_MVCModel.FK_GD_THU_CHI_DM_QUY" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTC_MVCModel.FK_DM_THU_CHI_DM_TU_DIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTC_MVCModel.FK_DM_THU_CHI_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTC_MVCModel.FK_GD_THU_CHI_DM_THU_CHI" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTC_MVCModel.FK_LOG_USER" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
