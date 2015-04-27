@@ -174,6 +174,45 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\DBMvcQLTC.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBMvcQLTC.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBMvcQLTC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBMvcQLTC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBMvcQLTC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBMvcQLTC.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_DVT.cs">
+      <DependentUpon>DBMvcQLTC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_QUY.cs">
+      <DependentUpon>DBMvcQLTC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_THU_CHI.cs">
+      <DependentUpon>DBMvcQLTC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_TU_DIEN.cs">
+      <DependentUpon>DBMvcQLTC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GD_THU_CHI.cs">
+      <DependentUpon>DBMvcQLTC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOG.cs">
+      <DependentUpon>DBMvcQLTC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>DBMvcQLTC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USER.cs">
+      <DependentUpon>DBMvcQLTC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +272,23 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <EntityDeploy Include="Models\DBMvcQLTC.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBMvcQLTC.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DBMvcQLTC.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBMvcQLTC.edmx</DependentUpon>
+      <LastGenOutput>DBMvcQLTC.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DBMvcQLTC.edmx.diagram">
+      <DependentUpon>DBMvcQLTC.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DBMvcQLTC.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBMvcQLTC.edmx</DependentUpon>
+      <LastGenOutput>DBMvcQLTC.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
