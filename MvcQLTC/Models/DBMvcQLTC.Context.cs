@@ -13,9 +13,9 @@ namespace MvcQLTC.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLTC_MVCEntities1 : DbContext
+    public partial class QLTC_MVCEntities : DbContext
     {
-        public QLTC_MVCEntities1()
+        public QLTC_MVCEntities()
             : base("name=QLTC_MVCEntities1")
         {
         }

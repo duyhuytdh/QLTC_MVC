@@ -1,0 +1,43 @@
+﻿@model MvcQLTC.Models.DM_DVT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>DM_DVT</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TEN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TEN)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.KI_HIEU)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.KI_HIEU)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QUY_DOI_USD)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QUY_DOI_USD)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GHI_CHU)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GHI_CHU)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

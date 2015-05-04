@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MvcQLTC.Models.GD_THU_CHI>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.THOI_GIAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DM_THU_CHI.TEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SO_TIEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DM_DVT.TEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DM_QUY.TEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GHI_CHU)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.THOI_GIAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DM_THU_CHI.TEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SO_TIEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DM_DVT.TEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DM_QUY.TEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GHI_CHU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

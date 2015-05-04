@@ -168,7 +168,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GdThuChiController.cs" />
+    <Compile Include="Controllers\DmThuChiController.cs" />
+    <Compile Include="Controllers\DmQuyController.cs" />
+    <Compile Include="Controllers\DonViTinhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -343,6 +348,31 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\DmQuy\Index.cshtml" />
+    <Content Include="Views\DmQuy\Details.cshtml" />
+    <Content Include="Views\DmQuy\Create.cshtml" />
+    <Content Include="Views\DmQuy\Edit.cshtml" />
+    <Content Include="Views\DmQuy\Delete.cshtml" />
+    <Content Include="Views\DonViTinh\Index.cshtml" />
+    <Content Include="Views\DonViTinh\Details.cshtml" />
+    <Content Include="Views\DonViTinh\Create.cshtml" />
+    <Content Include="Views\DonViTinh\Edit.cshtml" />
+    <Content Include="Views\DonViTinh\Delete.cshtml" />
+    <Content Include="Views\DmThuChi\Index.cshtml" />
+    <Content Include="Views\DmThuChi\Details.cshtml" />
+    <Content Include="Views\DmThuChi\Create.cshtml" />
+    <Content Include="Views\DmThuChi\Edit.cshtml" />
+    <Content Include="Views\DmThuChi\Delete.cshtml" />
+    <Content Include="Views\GdThuChi\Index.cshtml" />
+    <Content Include="Views\GdThuChi\Details.cshtml" />
+    <Content Include="Views\GdThuChi\Create.cshtml" />
+    <Content Include="Views\GdThuChi\Edit.cshtml" />
+    <Content Include="Views\GdThuChi\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

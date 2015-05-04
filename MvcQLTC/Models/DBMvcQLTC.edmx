@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLTC_MVCModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="QLTC_MVCModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="QLTC_MVCModelStoreContainer">
           <EntitySet Name="DM_DVT" EntityType="QLTC_MVCModel.Store.DM_DVT" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DM_QUY" EntityType="QLTC_MVCModel.Store.DM_QUY" store:Type="Tables" Schema="dbo" />
@@ -51,7 +51,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="numeric" Nullable="false" />
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TEN" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="KI_HIEU" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="QUY_DOI_USD" Type="numeric" Nullable="false" Precision="21" />
@@ -61,7 +61,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="numeric" Nullable="false" />
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ID_USER" Type="numeric" Nullable="false" />
           <Property Name="TEN" Type="nvarchar" Nullable="false" MaxLength="250" />
           <Property Name="SO_TIEN" Type="numeric" Nullable="false" Precision="21" />
@@ -73,7 +73,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="numeric" Nullable="false" />
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TEN" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="ID_LOAI" Type="numeric" Nullable="false" />
           <Property Name="ID_USER" Type="numeric" Nullable="false" />
@@ -83,7 +83,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="numeric" Nullable="false" />
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TEN" Type="nvarchar" Nullable="false" MaxLength="250" />
           <Property Name="TEM_NGAN" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="MO_TA" Type="nvarchar" MaxLength="250" />
@@ -93,7 +93,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="numeric" Nullable="false" />
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="THOI_GIAN" Type="datetime" Nullable="false" />
           <Property Name="ID_THU_CHI" Type="numeric" Nullable="false" />
           <Property Name="SO_TIEN" Type="numeric" Nullable="false" Precision="21" />
@@ -105,7 +105,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="numeric" Nullable="false" />
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ID_USER" Type="numeric" Nullable="false" />
           <Property Name="TIME" Type="datetime" Nullable="false" />
           <Property Name="ACTION" Type="nvarchar" Nullable="false" MaxLength="250" />
@@ -125,7 +125,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="numeric" Nullable="false" />
+          <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="USER_NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="ACCOUNT_NAME" Type="nvarchar" MaxLength="50" />
           <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
@@ -229,8 +229,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLTC_MVCModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">

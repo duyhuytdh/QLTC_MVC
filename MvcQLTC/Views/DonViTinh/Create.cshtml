@@ -1,0 +1,59 @@
+﻿@model MvcQLTC.Models.DM_DVT
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DM_DVT</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TEN)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TEN)
+            @Html.ValidationMessageFor(model => model.TEN)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.KI_HIEU)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.KI_HIEU)
+            @Html.ValidationMessageFor(model => model.KI_HIEU)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QUY_DOI_USD)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QUY_DOI_USD)
+            @Html.ValidationMessageFor(model => model.QUY_DOI_USD)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GHI_CHU)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GHI_CHU)
+            @Html.ValidationMessageFor(model => model.GHI_CHU)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
