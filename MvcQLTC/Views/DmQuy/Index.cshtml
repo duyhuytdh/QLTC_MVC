@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Index";
 }
+<script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.1.3.js")"></script>
 <style>
     #tbl_DmQuy > thead > tr > th {
         border:1px groove #000;
@@ -16,7 +18,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table id="tbl_DmQuy" style="min-width:1000px">
+<table id="tbl_DmQuy" style="min-width:1000px" class="table table-hover table-bordered">
     <thead style="vertical-align:middle">
         <tr>
             <th>
