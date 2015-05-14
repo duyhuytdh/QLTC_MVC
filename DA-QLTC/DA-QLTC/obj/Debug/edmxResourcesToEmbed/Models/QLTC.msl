@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLTC_MVCModelStoreContainer" CdmEntityContainer="QLTC_MVCEntities">
+    <EntitySetMapping Name="DM_DVT">
+      <EntityTypeMapping TypeName="QLTC_MVCModel.DM_DVT">
+        <MappingFragment StoreEntitySet="DM_DVT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TEN" ColumnName="TEN" />
+          <ScalarProperty Name="KI_HIEU" ColumnName="KI_HIEU" />
+          <ScalarProperty Name="QUY_DOI_USD" ColumnName="QUY_DOI_USD" />
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DM_QUY">
+      <EntityTypeMapping TypeName="QLTC_MVCModel.DM_QUY">
+        <MappingFragment StoreEntitySet="DM_QUY">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="TEN" ColumnName="TEN" />
+          <ScalarProperty Name="SO_TIEN" ColumnName="SO_TIEN" />
+          <ScalarProperty Name="ID_DVT" ColumnName="ID_DVT" />
+          <ScalarProperty Name="LOG_SO_TIEN" ColumnName="LOG_SO_TIEN" />
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DM_THU_CHI">
+      <EntityTypeMapping TypeName="QLTC_MVCModel.DM_THU_CHI">
+        <MappingFragment StoreEntitySet="DM_THU_CHI">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TEN" ColumnName="TEN" />
+          <ScalarProperty Name="ID_LOAI" ColumnName="ID_LOAI" />
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DM_TU_DIEN">
+      <EntityTypeMapping TypeName="QLTC_MVCModel.DM_TU_DIEN">
+        <MappingFragment StoreEntitySet="DM_TU_DIEN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TEN" ColumnName="TEN" />
+          <ScalarProperty Name="TEM_NGAN" ColumnName="TEM_NGAN" />
+          <ScalarProperty Name="MO_TA" ColumnName="MO_TA" />
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GD_THU_CHI">
+      <EntityTypeMapping TypeName="QLTC_MVCModel.GD_THU_CHI">
+        <MappingFragment StoreEntitySet="GD_THU_CHI">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="THOI_GIAN" ColumnName="THOI_GIAN" />
+          <ScalarProperty Name="ID_THU_CHI" ColumnName="ID_THU_CHI" />
+          <ScalarProperty Name="SO_TIEN" ColumnName="SO_TIEN" />
+          <ScalarProperty Name="ID_DVT" ColumnName="ID_DVT" />
+          <ScalarProperty Name="ID_QUY" ColumnName="ID_QUY" />
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOGs">
+      <EntityTypeMapping TypeName="QLTC_MVCModel.LOG">
+        <MappingFragment StoreEntitySet="LOG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="ACTION" ColumnName="ACTION" />
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QLTC_MVCModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERs">
+      <EntityTypeMapping TypeName="QLTC_MVCModel.USER">
+        <MappingFragment StoreEntitySet="USER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="ACCOUNT_NAME" ColumnName="ACCOUNT_NAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="FACEBOOK" ColumnName="FACEBOOK" />
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
