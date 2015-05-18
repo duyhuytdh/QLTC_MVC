@@ -6,20 +6,22 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div style="text-align:center; margin:0px auto"><h2 class="h2">Danh mục quỹ</h2></div>
+    <div style="text-align: center; margin: 0px auto; padding-left: 200px">
+        <h2 class="h2">Danh mục quỹ</h2>
+    </div>
 
     <p>
-        <%: Html.ActionLink("Tạo Quỹ", "Create") %>
+        <label class="glyphicon glyphicon-plus"></label>
+        <%: Html.ActionLink("Thêm quỹ mới", "Create") %>
     </p>
-    <table class="table table-hover table-bordered">
+    <table class="table table-hover table-bordered" style="width: 1000px">
         <thead>
             <tr>
-                <th>User name</th>
-                <th>Tên Quỹ</th>
+                <th style="width: 200px">Tên Quỹ</th>
                 <th>Số tiền</th>
                 <th>Đơn vị tính</th>
                 <th>Log số tiền</th>
-                <th>Ghi chú</th>
+                <th style="width: 200px">Ghi chú</th>
                 <th>Thao tác </th>
             </tr>
         </thead>
@@ -27,9 +29,6 @@
             <% foreach (var item in Model)
                { %>
             <tr>
-                <td>
-                    <%: Html.DisplayFor(modelItem => item.USER.USER_NAME) %>
-                </td>
                 <td>
                     <%: Html.DisplayFor(modelItem => item.TEN) %>
                 </td>
@@ -45,10 +44,13 @@
                 <td>
                     <%: Html.DisplayFor(modelItem => item.GHI_CHU) %>
                 </td>
-                <td>
-                    <%: Html.ActionLink("Edit", "Edit", new { id=item.ID }) %> |
-            <%: Html.ActionLink("Details", "Details", new { id=item.ID }) %> |
-            <%: Html.ActionLink("Delete", "Delete", new { id=item.ID }) %>
+                <td style="padding:2px">
+                    <label class="glyphicon glyphicon-edit"></label>
+                    <%: Html.ActionLink("Sửa", "Edit", new { id=item.ID }) %> |
+            <label class="glyphicon glyphicon-th-list"></label>
+                    <%: Html.ActionLink("Chi tiết", "Details", new { id=item.ID }) %> |
+            <label class="glyphicon glyphicon-trash"></label>
+                    <%: Html.ActionLink("Xóa", "Delete", new { id=item.ID }) %>
                 </td>
             </tr>
             <% } %>
