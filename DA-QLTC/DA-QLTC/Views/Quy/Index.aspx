@@ -1,15 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<DA_QLTC.Models.DM_QUY>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Index
+    Danh mục quỹ
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div style="margin:0px auto"><h2>Danh mục quỹ</h2></div>
+    <div style="text-align:center; margin:0px auto"><h2 class="h2">Danh mục quỹ</h2></div>
 
     <p>
-        <%: Html.ActionLink("Create New", "Create") %>
+        <%: Html.ActionLink("Tạo Quỹ", "Create") %>
     </p>
     <table class="table table-hover table-bordered">
         <thead>
