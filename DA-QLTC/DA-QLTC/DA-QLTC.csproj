@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\QuyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -290,6 +291,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Icon.png" />
+    <Content Include="Images\header.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\QLTC.edmx">
@@ -407,6 +409,11 @@
     <Content Include="Scripts\plugins\select2-select2-ng\dist\js\select2.full.min.js" />
     <Content Include="Scripts\plugins\select2-select2-ng\dist\js\select2.js" />
     <Content Include="Scripts\plugins\select2-select2-ng\dist\js\select2.min.js" />
+    <Content Include="Views\Quy\Create.aspx" />
+    <Content Include="Views\Quy\Delete.aspx" />
+    <Content Include="Views\Quy\Details.aspx" />
+    <Content Include="Views\Quy\Edit.aspx" />
+    <Content Include="Views\Quy\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
