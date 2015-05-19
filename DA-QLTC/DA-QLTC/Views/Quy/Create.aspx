@@ -17,7 +17,7 @@
         <%: Html.ValidationSummary(true) %>
 
         <fieldset>
-            <legend>Danh mục Quỹ</legend>
+            <legend>Thêm quỹ</legend>
             <div  style="margin:0px auto">
                 <label class="glyphicon glyphicon-list"></label>
                 <%: Html.ActionLink("Xem danh sách quỹ", "Index") %>

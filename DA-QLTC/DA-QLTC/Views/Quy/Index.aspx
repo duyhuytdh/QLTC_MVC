@@ -5,7 +5,11 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
+    <style>
+        #tbl_ds_quy tr > th {
+            background-color:aliceblue;
+        }
+    </style>
     <div style="text-align: center; margin: 0px auto; padding-left: 200px">
         <h2 class="h2">Danh mục quỹ</h2>
     </div>
@@ -14,7 +18,7 @@
         <label class="glyphicon glyphicon-plus"></label>
         <%: Html.ActionLink("Thêm quỹ mới", "Create") %>
     </p>
-    <table class="table table-hover table-bordered" style="width: 1000px">
+    <table id="tbl_ds_quy" class="table table-hover table-bordered" style="width: 1000px">
         <thead>
             <tr>
                 <th style="width: 200px">Tên Quỹ</th>

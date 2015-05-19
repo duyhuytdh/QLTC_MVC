@@ -6,58 +6,72 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Details</h2>
+  <style>
+        #tbl_tao_quy tr > td {
+            padding: 10px;
+        }
+    </style>
+    <h2 style="text-align: center; padding: 10px 10px 15px 150px">Chi tiết quỹ</h2>
+    <div style="text-align: center; margin: 0px auto; width: 100%">
+        <% using (Html.BeginForm())
+           { %>
+        <%: Html.ValidationSummary(true) %>
 
-<fieldset>
-    <legend>DM_QUY</legend>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.USER.USER_NAME) %>
+        <fieldset>
+            <legend>Thêm quỹ</legend>
+            <div style="margin: 0px auto">
+                <label class="glyphicon glyphicon-list"></label>
+                <%: Html.ActionLink("Xem danh sách quỹ", "Index") %>
+            </div>
+            <div style="width: 500px; text-align: center; margin: 0px auto">
+                <table id="tbl_tao_quy">
+                    <tr>
+                        <td>
+                            <label class="float-left">Tên Quỹ</label></td>
+                        <td>
+                            <div class="display-field float-left form-control-static">
+                                <%: Html.DisplayFor(model => model.TEN) %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="float-left">Số tiền</label></td>
+                        <td>
+                            <div class="display-field float-left form-control-static">
+                                <%: Html.DisplayFor(model => model.SO_TIEN) %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="float-left">Đơn vị tính</label></td>
+                        <td style="text-align: left">
+                            <div class="display-field float-left form-control-static">
+                                <%: Html.DisplayFor(model => model.DM_DVT.TEN) %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="float-left">Ghi chú</label></td>
+                        <td>
+                            <div class="display-field float-left form-control-static">
+                                <%: Html.DisplayFor(model => model.GHI_CHU) %>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                <label class="glyphicon glyphicon-edit"></label>
+                <%: Html.ActionLink("Sửa", "Edit", new { id=Model.ID }) %> |
+               <label class="glyphicon glyphicon-circle-arrow-left"></label>
+                <%: Html.ActionLink("Trở lại", "Index") %>
+            </p>
+        </fieldset>
+        <% } %>
     </div>
-    <div class="display-field">
-        <%: Html.DisplayFor(model => model.USER.USER_NAME) %>
-    </div>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.TEN) %>
-    </div>
-    <div class="display-field">
-        <%: Html.DisplayFor(model => model.TEN) %>
-    </div>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.SO_TIEN) %>
-    </div>
-    <div class="display-field">
-        <%: Html.DisplayFor(model => model.SO_TIEN) %>
-    </div>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.DM_DVT.TEN) %>
-    </div>
-    <div class="display-field">
-        <%: Html.DisplayFor(model => model.DM_DVT.TEN) %>
-    </div>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.LOG_SO_TIEN) %>
-    </div>
-    <div class="display-field">
-        <%: Html.DisplayFor(model => model.LOG_SO_TIEN) %>
-    </div>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.GHI_CHU) %>
-    </div>
-    <div class="display-field">
-        <%: Html.DisplayFor(model => model.GHI_CHU) %>
-    </div>
-</fieldset>
-<p>
-
-    <%: Html.ActionLink("Edit", "Edit", new { id=Model.ID }) %> |
-    <%: Html.ActionLink("Back to List", "Index") %>
-</p>
 
 </asp:Content>
 
