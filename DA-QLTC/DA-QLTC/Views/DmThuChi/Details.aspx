@@ -1,13 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.master" Inherits="System.Web.Mvc.ViewPage<DA_QLTC.Models.DM_QUY>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.master" Inherits="System.Web.Mvc.ViewPage<DA_QLTC.Models.DM_THU_CHI>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Details
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-  <style>
-        #tbl_tao_quy tr > td {
+     <style>
+        #tbl_them_chu_chi tr > td {
             padding: 10px;
         }
     </style>
@@ -18,16 +17,16 @@
         <%: Html.ValidationSummary(true) %>
 
         <fieldset>
-            <legend>Chi tiết quỹ</legend>
+            <legend>Chi tiết danh mục thu/chi</legend>
             <div style="margin: 0px auto">
                 <label class="glyphicon glyphicon-list"></label>
-                <%: Html.ActionLink("Xem danh sách quỹ", "Index") %>
+                <%: Html.ActionLink("Xem danh mục thu/chi", "Index") %>
             </div>
             <div style="width: 500px; text-align: center; margin: 0px auto">
-                <table id="tbl_tao_quy">
+                <table id="tbl_them_chu_chi">
                     <tr>
                         <td>
-                            <label class="float-left">Tên Quỹ</label></td>
+                            <label class="float-left">Tên Thu/Chi</label></td>
                         <td>
                             <div class="display-field float-left form-control-static">
                                 <%: Html.DisplayFor(model => model.TEN) %>
@@ -36,19 +35,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <label class="float-left">Số tiền</label></td>
+                            <label class="float-left">Loại Thu/Chi</label></td>
                         <td>
                             <div class="display-field float-left form-control-static">
-                                <%: Html.DisplayFor(model => model.SO_TIEN) %>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label class="float-left">Đơn vị tính</label></td>
-                        <td style="text-align: left">
-                            <div class="display-field float-left form-control-static">
-                                <%: Html.DisplayFor(model => model.DM_DVT.TEN) %>
+                                <%: Html.DisplayFor(model => model.DM_TU_DIEN.TEN) %>
                             </div>
                         </td>
                     </tr>

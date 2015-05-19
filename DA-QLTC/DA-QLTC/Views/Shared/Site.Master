@@ -19,6 +19,7 @@
     <%: Scripts.Render("~/bundles/modernizr") %>
 
     <!--Bootstrap-->
+    <link href="../../Style/Admin.css" rel="stylesheet" />
     <link href="~/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="~/bootstrap-3.2.0-dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
     <!--datetimepicker and select2-->
@@ -41,8 +42,9 @@
                 </p>
                 <nav>
                     <ul class="nav nav-tabs btn-success">
-                        <li role="presentation" class="text-primary"><%: Html.ActionLink("Home", "Index", "Home") %></li>
-                        <li role="presentation" class="text-primary"><%: Html.ActionLink("Quỹ", "Index", "Quy") %></li>
+                        <li role="presentation" class="text-primary"><%: Html.ActionLink("Trang chủ", "Index", "Home") %></li>
+                        <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục Quỹ", "Index", "Quy") %></li>
+                        <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục Thu/Chi", "Index", "DmThuChi") %></li>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("About", "About", "Home") %></li>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("Contact", "Contact", "Home") %></li>
                         <li style="text-align: center"></li>
