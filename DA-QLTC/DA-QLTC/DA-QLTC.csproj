@@ -169,6 +169,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DmThuChiController.cs" />
+    <Compile Include="Controllers\GdThuChiController.cs" />
     <Compile Include="Controllers\QuyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -416,6 +417,11 @@
     <Content Include="Views\DmThuChi\Details.aspx" />
     <Content Include="Views\DmThuChi\Edit.aspx" />
     <Content Include="Views\DmThuChi\Index.aspx" />
+    <Content Include="Views\GdThuChi\Create.aspx" />
+    <Content Include="Views\GdThuChi\Delete.aspx" />
+    <Content Include="Views\GdThuChi\Details.aspx" />
+    <Content Include="Views\GdThuChi\Edit.aspx" />
+    <Content Include="Views\GdThuChi\Index.aspx" />
     <Content Include="Views\Quy\Create.aspx" />
     <Content Include="Views\Quy\Delete.aspx" />
     <Content Include="Views\Quy\Details.aspx" />

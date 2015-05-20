@@ -48,11 +48,11 @@
                 <td>
                     <%: Html.DisplayFor(modelItem => item.GHI_CHU) %>
                 </td>
-                <td style="padding:2px">
+                <td style="margin:2px">
                     <label class="glyphicon glyphicon-edit"></label>
-                    <%: Html.ActionLink("Sửa", "Edit", new { id=item.ID }) %> |
-            <label class="glyphicon glyphicon-th-list"></label>
-                    <%: Html.ActionLink("Chi tiết", "Details", new { id=item.ID }) %> |
+                    <%: Html.ActionLink("Sửa", "Edit", new { id=item.ID }) %> 
+            <label class="glyphicon glyphicon-align-justify"></label>
+                    <%: Html.ActionLink("Chi tiết", "Details", new { id=item.ID }) %> 
             <label class="glyphicon glyphicon-trash"></label>
                     <%: Html.ActionLink("Xóa", "Delete", new { id=item.ID }) %>
                 </td>

@@ -21,6 +21,7 @@ namespace DA_QLTC.Models
         public decimal ID_DVT { get; set; }
         public decimal ID_QUY { get; set; }
         public string GHI_CHU { get; set; }
+        public string TEN_GIAO_DICH { get; set; }
     
         public virtual DM_DVT DM_DVT { get; set; }
         public virtual DM_QUY DM_QUY { get; set; }
