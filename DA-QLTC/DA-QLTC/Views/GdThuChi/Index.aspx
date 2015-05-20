@@ -19,7 +19,7 @@
         <th style="width:100px">
            Ngày giao dịch
         </th>
-        <th style="width:300px">
+        <th style="width:auto">
             Tên giao dịch
         </th>
          <th style="width:100px">
@@ -28,13 +28,13 @@
           <th style="width:100px">
             Số tiền
         </th>
-          <th style="width:100px">
+          <th style="width:80px">
             Đơn vị tính
         </th>
          <th style="width:100px">
             Quỹ giao dịch
         </th>
-        <th style="width:300px">
+        <th style="width:100px">
            Ghi chú
         </th>
         <th>
@@ -66,7 +66,7 @@
         <td>
             <%: Html.DisplayFor(modelItem => item.GHI_CHU) %>
         </td>
-       <td style="margin:2px">
+       <td style="margin:2px; width:180px">
                     <label class="glyphicon glyphicon-edit"></label>
                     <%: Html.ActionLink("Sửa", "Edit", new { id=item.ID }) %> 
             <label class="glyphicon glyphicon-align-justify"></label>

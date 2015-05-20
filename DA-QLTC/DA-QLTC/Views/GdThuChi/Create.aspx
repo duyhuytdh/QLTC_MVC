@@ -5,73 +5,115 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+        #tbl_tao_quy tr > td {
+            padding: 10px;
+        }
+    </style>
+    <h2 style="text-align: center; padding: 10px 10px 15px 150px">Thêm giao dịch</h2>
+    <div style="text-align: center; margin: 0px auto; width: 100%">
+        <% using (Html.BeginForm())
+           { %>
+        <%: Html.ValidationSummary(true) %>
 
-<h2>Create</h2>
-
-<% using (Html.BeginForm()) { %>
-    <%: Html.AntiForgeryToken() %>
-    <%: Html.ValidationSummary(true) %>
-
-    <fieldset>
-        <legend>GD_THU_CHI</legend>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.THOI_GIAN) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.THOI_GIAN) %>
-            <%: Html.ValidationMessageFor(model => model.THOI_GIAN) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.ID_THU_CHI, "DM_THU_CHI") %>
-        </div>
-        <div class="editor-field">
-            <%: Html.DropDownList("ID_THU_CHI", String.Empty) %>
-            <%: Html.ValidationMessageFor(model => model.ID_THU_CHI) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.SO_TIEN) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.SO_TIEN) %>
-            <%: Html.ValidationMessageFor(model => model.SO_TIEN) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.ID_DVT, "DM_DVT") %>
-        </div>
-        <div class="editor-field">
-            <%: Html.DropDownList("ID_DVT", String.Empty) %>
-            <%: Html.ValidationMessageFor(model => model.ID_DVT) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.ID_QUY, "DM_QUY") %>
-        </div>
-        <div class="editor-field">
-            <%: Html.DropDownList("ID_QUY", String.Empty) %>
-            <%: Html.ValidationMessageFor(model => model.ID_QUY) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.GHI_CHU) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.GHI_CHU) %>
-            <%: Html.ValidationMessageFor(model => model.GHI_CHU) %>
-        </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-<% } %>
-
-<div>
-    <%: Html.ActionLink("Back to List", "Index") %>
-</div>
+        <fieldset>
+            <legend>Thêm giao dịch thu/chi</legend>
+            <div style="margin: 0px auto">
+                <label class="glyphicon glyphicon-list"></label>
+                <%: Html.ActionLink("Xem lịch sử giao dịch thu/chi", "Index") %>
+            </div>
+            <div style="width: 500px; text-align: center; margin: 0px auto">
+                <table id="tbl_tao_quy">
+                    <tr>
+                        <td>
+                            <label class="label-input-css float-left">Ngày giao dịch</label></td>
+                        <%--<td>
+                            <div class="container">
+                                <div class="row" style="width: 300px">
+                                    <div class='col-sm-6'>
+                                        <div class="form-group">
+                                            <div class='input-group date' id='datetimepicker1'>
+                                                <input type='text' class="form-control" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </td>--%>
+                        <td> <input  type="text" placeholder="click to show datepicker"  id="m_dat_ngay"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="label-input-css float-left">Tên giao dịch</label></td>
+                        <td>
+                            <div class="editor-field float-right form-control">
+                                <%: Html.EditorFor(model => model.TEN_GIAO_DICH) %>
+                                <%: Html.ValidationMessageFor(model => model.TEN_GIAO_DICH) %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="label-input-css float-left">Danh mục giao dịch</label></td>
+                        <td>
+                            <div class="editor-field float-right form-control">
+                                <%: Html.DropDownList("ID_THU_CHI", String.Empty) %>
+                                <%: Html.ValidationMessageFor(model => model.ID_THU_CHI) %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="label-input-css float-left">Số tiền</label></td>
+                        <td style="text-align: left">
+                            <div class="editor-field float-right form-control">
+                                <%: Html.EditorFor(model => model.SO_TIEN)%>
+                                <%: Html.ValidationMessageFor(model => model.SO_TIEN) %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="label-input-css float-left">Đơn vị tính</label></td>
+                        <td style="text-align: left">
+                            <div class="editor-field float-right form-control">
+                                <%: Html.DropDownList("ID_DVT", String.Empty) %>
+                                <%: Html.ValidationMessageFor(model => model.ID_DVT) %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="label-input-css float-left">Quỹ giao dịch</label></td>
+                        <td>
+                            <div class="editor-field float-right form-control">
+                                <%: Html.DropDownList("ID_QUY", String.Empty) %>
+                                <%: Html.ValidationMessageFor(model => model.ID_QUY) %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="label-input-css float-left">Ghi chú</label></td>
+                        <td>
+                            <div class="editor-field float-right form-control">
+                                <%: Html.EditorFor(model => model.GHI_CHU) %>
+                                <%: Html.ValidationMessageFor(model => model.GHI_CHU) %>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                <input class="btn btn-success" type="submit" value="Tạo mới" />
+            </p>
+        </fieldset>
+        <% } %>
+    </div>
+  
 
 </asp:Content>
 
@@ -80,4 +122,14 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
     <%: Scripts.Render("~/bundles/jqueryval") %>
+        <script type="text/javascript">
+            //$(function () {
+            //    $('#datetimepicker1').datetimepicker();
+            //});
+            $(document).ready(function () {
+                $('#m_dat_ngay').datepicker({
+                    format: "dd/mm/yyyy"
+                });
+            });
+    </script>
 </asp:Content>
