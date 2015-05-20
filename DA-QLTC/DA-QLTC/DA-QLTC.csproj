@@ -169,6 +169,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DmThuChiController.cs" />
+    <Compile Include="Controllers\DVTController.cs" />
     <Compile Include="Controllers\GdThuChiController.cs" />
     <Compile Include="Controllers\QuyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -417,6 +418,11 @@
     <Content Include="Views\DmThuChi\Details.aspx" />
     <Content Include="Views\DmThuChi\Edit.aspx" />
     <Content Include="Views\DmThuChi\Index.aspx" />
+    <Content Include="Views\DVT\Create.aspx" />
+    <Content Include="Views\DVT\Delete.aspx" />
+    <Content Include="Views\DVT\Details.aspx" />
+    <Content Include="Views\DVT\Edit.aspx" />
+    <Content Include="Views\DVT\Index.aspx" />
     <Content Include="Views\GdThuChi\Create.aspx" />
     <Content Include="Views\GdThuChi\Delete.aspx" />
     <Content Include="Views\GdThuChi\Details.aspx" />
