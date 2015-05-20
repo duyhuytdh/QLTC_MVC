@@ -17,7 +17,7 @@
 
  <p>
         <label class="glyphicon glyphicon-plus"></label>
-        <%: Html.ActionLink("Thêm quỹ mới", "Create") %>
+        <%: Html.ActionLink("Thêm danh mục thu chi", "Create") %>
     </p>
 <table id="tbl_ds_thu_chi" class="table table-hover table-bordered header-background" style="width: 1000px">
     <thead>
@@ -48,7 +48,7 @@
         <td>
             <%: Html.DisplayFor(modelItem => item.GHI_CHU) %>
         </td>
-       <td style="margin:2px">
+       <td style="margin:2px;width:180px">
                     <label class="glyphicon glyphicon-edit"></label>
                     <%: Html.ActionLink("Sửa", "Edit", new { id=item.ID }) %> 
             <label class="glyphicon glyphicon-align-justify"></label>

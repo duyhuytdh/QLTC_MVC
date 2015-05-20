@@ -45,6 +45,7 @@
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("Trang chủ", "Index", "Home") %></li>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục Quỹ", "Index", "Quy") %></li>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục Thu/Chi", "Index", "DmThuChi") %></li>
+                        <li role="presentation" class="text-primary"><%: Html.ActionLink("Giao dịch thu/chi", "Index", "GdThuChi") %></li>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("About", "About", "Home") %></li>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("Contact", "Contact", "Home") %></li>
                         <li style="text-align: center"></li>
