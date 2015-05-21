@@ -29,7 +29,7 @@
                         <td>
                             <label class="label-input-css float-left">Ngày giao dịch</label></td>
                         <td>
-                            <input type="text" class="form-control" placeholder="Click to show datepicker" id="m_dat_ngay" /></td>
+                            <input type="text" class="form-control" placeholder="Click để chọn ngày tháng" id="m_dat_ngay" /></td>
                     </tr>
                     <tr>
                         <td>
@@ -53,9 +53,9 @@
                     </tr>
                     <tr>
                         <td>
-                            <label class="label-input-css float-left format-money">Số tiền</label></td>
+                            <label class="label-input-css float-left">Số tiền</label></td>
                         <td style="text-align: left">
-                            <div class="editor-field float-right form-control">
+                            <div class="editor-field float-right form-control format_money">
                                 <%: Html.EditorFor(model => model.SO_TIEN)%>
                                 <%: Html.ValidationMessageFor(model => model.SO_TIEN) %>
                             </div>
