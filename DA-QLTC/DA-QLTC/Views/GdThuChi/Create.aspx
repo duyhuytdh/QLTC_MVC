@@ -5,6 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
     <style>
         #tbl_tao_quy tr > td {
             padding: 10px;
@@ -27,23 +28,8 @@
                     <tr>
                         <td>
                             <label class="label-input-css float-left">Ngày giao dịch</label></td>
-                        <%--<td>
-                            <div class="container">
-                                <div class="row" style="width: 300px">
-                                    <div class='col-sm-6'>
-                                        <div class="form-group">
-                                            <div class='input-group date' id='datetimepicker1'>
-                                                <input type='text' class="form-control" />
-                                                <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                </span>
-                                            </div>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </div>
-                        </td>--%>
-                        <td> <input  type="text" placeholder="click to show datepicker"  id="m_dat_ngay"></td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Click to show datepicker" id="m_dat_ngay" /></td>
                     </tr>
                     <tr>
                         <td>
@@ -67,7 +53,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <label class="label-input-css float-left">Số tiền</label></td>
+                            <label class="label-input-css float-left format-money">Số tiền</label></td>
                         <td style="text-align: left">
                             <div class="editor-field float-right form-control">
                                 <%: Html.EditorFor(model => model.SO_TIEN)%>
@@ -113,7 +99,7 @@
         </fieldset>
         <% } %>
     </div>
-  
+
 
 </asp:Content>
 
@@ -122,14 +108,5 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
     <%: Scripts.Render("~/bundles/jqueryval") %>
-        <script type="text/javascript">
-            //$(function () {
-            //    $('#datetimepicker1').datetimepicker();
-            //});
-            $(document).ready(function () {
-                $('#m_dat_ngay').datepicker({
-                    format: "dd/mm/yyyy"
-                });
-            });
-    </script>
+    <script src="../../Scripts/UI/GD_THU_CHI.js"></script>
 </asp:Content>

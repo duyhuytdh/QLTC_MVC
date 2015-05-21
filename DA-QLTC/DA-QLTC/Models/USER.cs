@@ -28,6 +28,7 @@ namespace DA_QLTC.Models
         public string EMAIL { get; set; }
         public string FACEBOOK { get; set; }
         public string GHI_CHU { get; set; }
+        public string ROLE { get; set; }
     
         public virtual ICollection<DM_QUY> DM_QUY { get; set; }
         public virtual ICollection<DM_THU_CHI> DM_THU_CHI { get; set; }

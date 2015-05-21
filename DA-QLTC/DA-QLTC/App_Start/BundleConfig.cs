@@ -10,6 +10,7 @@ namespace DA_QLTC
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
+                        //,"~/Scripts/bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
@@ -37,7 +38,10 @@ namespace DA_QLTC
                         "~/Content/themes/base/jquery.ui.tabs.css",
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
-                        "~/Content/themes/base/jquery.ui.theme.css"));
+                        "~/Content/themes/base/jquery.ui.theme.css"
+                        // "~/Content/themes/base/bootstrap.css",
+                        //"~/Content/themes/base/bootstrap-theme.css"
+                        ));
         }
     }
 }

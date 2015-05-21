@@ -11,31 +11,26 @@
         .text-primary {
             font-size: 14px;
             font-weight: 500;
+            text-decoration-color: white;
         }
     </style>
     <link href="<%: Url.Content("~/favicon.ico") %>" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     <%: Styles.Render("~/Content/css") %>
-    <%: Scripts.Render("~/bundles/modernizr") %>
+    <%: Styles.Render("~/Content/themes/base/css") %>
 
     <!--Bootstrap-->
     <link href="../../Style/Admin.css" rel="stylesheet" />
     <link href="~/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="~/bootstrap-3.2.0-dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+    <%-- <link href="../../Content/themes/base/datepicker.css" rel="stylesheet" />--%>
+    <link href="../../Content/jquery-ui.css" rel="stylesheet" />
     <!--datetimepicker and select2-->
     <link href="~/Scripts/plugins/select2-select2-ng/dist/css/select2.css" rel="stylesheet" type="text/css" />
-
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-2.1.4.js")%>'></script>
-    <%--	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/linq.js")%>'></script>
-	<script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/script.js")%>'></script>--%>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-ui-1.8.20.js")%>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/bootstrap-3.2.0-dist/js/bootstrap.js") %>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/plugins/datepicker/bootstrap-datepicker.js")%>'></script>
-    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/plugins/select2-select2-ng/dist/js/select2.js")%>'></script>
 </head>
 <body>
     <header>
-        <div class="content-wrapper" style="padding-top:0px">
+        <div class="content-wrapper" style="padding-top: 0px">
             <div class="float-left">
                 <p class="site-title">
                     <img src="../../Images/header.png" alt="Header image" style="width: 1000px; height: 120px">
@@ -43,10 +38,29 @@
                 <nav>
                     <ul class="nav nav-tabs btn-success">
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("Trang chủ", "Index", "Home") %></li>
-                        <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục Quỹ", "Index", "Quy") %></li>
-                        <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục Thu/Chi", "Index", "DmThuChi") %></li>
-                        <li role="presentation" class="text-primary"><%: Html.ActionLink("Giao dịch thu/chi", "Index", "GdThuChi") %></li>
-                          <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục đơn vị tính", "Index", "DVT") %></li>
+                        <li role="presentation" class="dropdown text-primary">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Danh mục <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục Quỹ", "Index", "Quy") %></li>
+                                <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục Thu/Chi", "Index", "DmThuChi") %></li>
+                                <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục đơn vị tính", "Index", "DVT") %></li>
+                            </ul>
+                        </li>
+
+                        <li role="presentation" class="text-primary"><%: Html.ActionLink("Giao dịch", "Index", "GdThuChi") %></li>
+
+                        <li role="presentation" class="dropdown text-primary">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Báo cáo <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation" class="text-primary"><%: Html.ActionLink("Báo cáo tổng hợp", "Index", "Quy") %></li>
+                                <li role="presentation" class="text-primary"><%: Html.ActionLink("Báo cáo thu", "Index", "DmThuChi") %></li>
+                                <li role="presentation" class="text-primary"><%: Html.ActionLink("Báo cáo chi", "Index", "DVT") %></li>
+                            </ul>
+                        </li>
+
+                        <li role="presentation" class="text-primary"><%: Html.ActionLink("Quản lý người dùng", "Index", "User") %></li>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("About", "About", "Home") %></li>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("Contact", "Contact", "Home") %></li>
                         <li style="text-align: center"></li>
@@ -67,7 +81,7 @@
         </section>
     </div>
     <footer>
-        <div class="content-wrapper">
+        <div class="content-wrapper bg-info">
             <div class="float-left">
                 <p>&copy; <%: DateTime.Now.Year %> - @Copy right Duy-Huy Development</p>
             </div>
@@ -75,6 +89,13 @@
     </footer>
 
     <%: Scripts.Render("~/bundles/jquery") %>
-    <asp:ContentPlaceHolder ID="ScriptsSection" runat="server" />
+    <%: Scripts.Render("~/bundles/jqueryui") %>
+    <%: Scripts.Render("~/bundles/modernizr") %>
+    <script type="text/javascript" src='<%=ResolveClientUrl("~/bootstrap-3.2.0-dist/js/bootstrap.js") %>'></script>
+    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/plugins/select2-select2-ng/dist/js/select2.js")%>'></script>
+    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/plugins/custom/Format_money.js")%>'></script>
+    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/script.js")%>'></script>
+    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-ui-1.11.4.js")%>'></script>
+    <asp:ContentPlaceHolder ID="ScriptsSection" runat="server"></asp:ContentPlaceHolder>
 </body>
 </html>

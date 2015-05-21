@@ -22,7 +22,7 @@
                 <label class="glyphicon glyphicon-list"></label>
                 <%: Html.ActionLink("Xem danh sách thu/chi", "Index") %>
             </div>
-            <div style="width:500px; text-align: center; margin: 0px auto">
+            <div style="width: 500px; text-align: center; margin: 0px auto">
                 <table id="tbl_tao_quy">
                     <tr>
                         <td>
@@ -69,5 +69,7 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
-    <%: Scripts.Render("~/bundles/jqueryval") %>
+    <%--<%: Scripts.Render("~/bundles/jqueryval") %>--%>
+    <script src="../../Scripts/UI/GD_THU_CHI.js"></script>
+    
 </asp:Content>

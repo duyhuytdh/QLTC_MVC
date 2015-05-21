@@ -133,6 +133,7 @@
           <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
           <Property Name="FACEBOOK" Type="nvarchar" MaxLength="50" />
           <Property Name="GHI_CHU" Type="nvarchar" MaxLength="250" />
+          <Property Name="ROLE" Type="nchar" MaxLength="10" />
         </EntityType>
         <Association Name="FK_DM_QUY_DM_DVT">
           <End Role="DM_DVT" Type="QLTC_MVCModel.Store.DM_DVT" Multiplicity="1" />
@@ -378,6 +379,7 @@
           <NavigationProperty Name="DM_QUY" Relationship="QLTC_MVCModel.FK_DM_QUY_USER" FromRole="USER" ToRole="DM_QUY" />
           <NavigationProperty Name="DM_THU_CHI" Relationship="QLTC_MVCModel.FK_DM_THU_CHI_USER" FromRole="USER" ToRole="DM_THU_CHI" />
           <NavigationProperty Name="LOGs" Relationship="QLTC_MVCModel.FK_LOG_USER" FromRole="USER" ToRole="LOG" />
+          <Property Type="String" Name="ROLE" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <Association Name="FK_DM_QUY_DM_DVT">
           <End Role="DM_DVT" Type="QLTC_MVCModel.DM_DVT" Multiplicity="1" />
@@ -566,6 +568,7 @@
           <EntitySetMapping Name="USERs">
             <EntityTypeMapping TypeName="QLTC_MVCModel.USER">
               <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
                 <ScalarProperty Name="ACCOUNT_NAME" ColumnName="ACCOUNT_NAME" />
