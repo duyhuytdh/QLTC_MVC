@@ -72,13 +72,20 @@ namespace DA_QLTC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Register(RegisterModel model, string m_txt_ho_ten)
         {
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
                 try
                 {
+                    QLTC_MVCEntities db = new QLTC_MVCEntities();
+                    USER user = new USER();
+                    user.USER_NAME = m_txt_ho_ten;
+                    user.ACCOUNT_NAME = model.UserName;
+                    user.PASSWORD = model.Password;
+                    db.USERs.Add(user);
+                    db.SaveChanges();
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");

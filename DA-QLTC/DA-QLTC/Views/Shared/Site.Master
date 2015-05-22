@@ -63,14 +63,16 @@
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("Quản lý người dùng", "Index", "User") %></li>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("About", "About", "Home") %></li>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("Contact", "Contact", "Home") %></li>
+                        <li class="" style="padding-left:150px; display:inline">
+                            <div class="float-right" style="display:inline; color:white">
+                                <section id="Section1">
+                                    <%: Html.Partial("_LoginPartial") %>
+                                </section>
+                            </div>
+                        </li>
                         <li style="text-align: center"></li>
                     </ul>
                 </nav>
-            </div>
-            <div class="float-right">
-                <section id="login">
-                    <%: Html.Partial("_LoginPartial") %>
-                </section>
             </div>
         </div>
     </header>

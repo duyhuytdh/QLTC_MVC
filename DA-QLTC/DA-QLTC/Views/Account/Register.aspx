@@ -18,15 +18,19 @@
             <legend>Registration Form</legend>
             <ol>
                 <li>
-                    <%: Html.LabelFor(m => m.UserName) %>
+                    <label>Họ và tên</label>
+                    <input id="m_txt_ho_ten" name="m_txt_ho_ten" type="text" />
+                </li>
+                <li>
+                    <%: Html.Label("Tên đăng nhập") %>
                     <%: Html.TextBoxFor(m => m.UserName) %>
                 </li>
                 <li>
-                    <%: Html.LabelFor(m => m.Password) %>
+                    <%: Html.Label("Mật khẩu") %>
                     <%: Html.PasswordFor(m => m.Password) %>
                 </li>
                 <li>
-                    <%: Html.LabelFor(m => m.ConfirmPassword) %>
+                    <%: Html.Label("Xác nhận mật khẩu") %>
                     <%: Html.PasswordFor(m => m.ConfirmPassword) %>
                 </li>
             </ol>

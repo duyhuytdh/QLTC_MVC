@@ -5,74 +5,74 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+        #tbl_tao_quy tr > td {
+            padding: 10px;
+        }
+    </style>
+    <h2 style="text-align: center; padding: 10px 10px 15px 150px">Đăng ký tài khoản</h2>
+    <div style="text-align: center; margin: 0px auto; width: 100%">
+        <% using (Html.BeginForm())
+           { %>
+        <%: Html.AntiForgeryToken() %>
+        <%: Html.ValidationSummary() %>
 
-<h2>Create</h2>
-
-<% using (Html.BeginForm()) { %>
-    <%: Html.AntiForgeryToken() %>
-    <%: Html.ValidationSummary(true) %>
-
-    <fieldset>
-        <legend>USER</legend>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.USER_NAME) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.USER_NAME) %>
-            <%: Html.ValidationMessageFor(model => model.USER_NAME) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.ACCOUNT_NAME) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.ACCOUNT_NAME) %>
-            <%: Html.ValidationMessageFor(model => model.ACCOUNT_NAME) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.PASSWORD) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.PASSWORD) %>
-            <%: Html.ValidationMessageFor(model => model.PASSWORD) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.EMAIL) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.EMAIL) %>
-            <%: Html.ValidationMessageFor(model => model.EMAIL) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.FACEBOOK) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.FACEBOOK) %>
-            <%: Html.ValidationMessageFor(model => model.FACEBOOK) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.GHI_CHU) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.GHI_CHU) %>
-            <%: Html.ValidationMessageFor(model => model.GHI_CHU) %>
-        </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-<% } %>
-
-<div>
-    <%: Html.ActionLink("Back to List", "Index") %>
-</div>
-
+        <fieldset>
+            <legend>Thêm danh mục thu/chi</legend>
+            <div style="margin: 0px auto">
+                <label class="glyphicon glyphicon-list"></label>
+                <%: Html.ActionLink("Xem danh sách user", "Index") %>
+            </div>
+            <div style="width: 500px; text-align: center; margin: 0px auto">
+                <table id="tbl_tao_quy">
+                    <tr>
+                        <td>
+                            <label class="float-left">Họ và tên</label></td>
+                        <td>
+                            <div class="editor-field float-right form-control">
+                                <%: Html.EditorFor(model => model.USER_NAME) %>
+                                <%: Html.ValidationMessageFor(model => model.USER_NAME) %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="float-left">Tên đăng nhập</label></td>
+                        <td style="text-align: left">
+                            <div class="editor-field float-right form-control">
+                                <%: Html.EditorFor(model => model.ACCOUNT_NAME) %>
+                                <%: Html.ValidationMessageFor(model => model.ACCOUNT_NAME) %>
+                            </div>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <label class="float-left">Mật khẩu</label></td>
+                        <td style="text-align: left">
+                            <div class="editor-field float-right form-control">
+                                <%: Html.EditorFor(model => model.PASSWORD) %>
+                                <%: Html.ValidationMessageFor(model => model.PASSWORD) %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="float-left">Nhập lại mật khẩu</label></td>
+                        <td>
+                            <div class="editor-field float-right form-control">
+                                <%: Html.EditorFor(model => model.PASSWORD) %>
+                                <%: Html.ValidationMessageFor(model => model.PASSWORD) %>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                <input class="btn btn-success" style="margin-left:100px" type="submit" value="Đăng ký" />
+            </p>
+        </fieldset>
+        <% } %>
+    </div>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">

@@ -9,6 +9,7 @@ using DA_QLTC.Models;
 
 namespace DA_QLTC.Controllers
 {
+    //[Authorize]
     public class UserController : Controller
     {
         private QLTC_MVCEntities db = new QLTC_MVCEntities();
