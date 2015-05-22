@@ -127,7 +127,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="USER_NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="USER_NAME" Type="nvarchar" MaxLength="50" />
           <Property Name="ACCOUNT_NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="PASSWORD" Type="nvarchar" Nullable="false" MaxLength="128" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
@@ -370,7 +370,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="USER_NAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="USER_NAME" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="ACCOUNT_NAME" Type="String" MaxLength="50" Unicode="true" FixedLength="false" Nullable="false" />
           <Property Name="PASSWORD" Type="String" MaxLength="128" Unicode="true" FixedLength="false" Nullable="false" />
           <Property Name="EMAIL" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />

@@ -8,6 +8,15 @@
 
     <fieldset>
         <legend>Change Password Form</legend>
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+        </table>
         <ol>
             <li>
                 <%: Html.LabelFor(m => m.OldPassword) %>

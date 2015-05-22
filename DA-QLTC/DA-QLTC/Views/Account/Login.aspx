@@ -5,40 +5,49 @@
 </asp:Content>
 
 <asp:Content ID="loginContent" ContentPlaceHolderID="MainContent" runat="server">
-    <hgroup class="title">
-        <h1>Log in.</h1>
-    </hgroup>
-
+    <style>
+        #tbl_login tr>td {
+            padding:10px;
+        }
+    </style>
+<h2 style="margin-left:150px; margin-top:20px; color:forestgreen" class="h2">Đăng nhập</h2>
     <section id="loginForm">
-    <h2>Use a local account to log in.</h2>
-    <% using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) { %>
+        <h3 class="h3" style="color:green">Đăng nhập bằng tài khoản đã có</h3>
+        <% using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+           { %>
         <%: Html.AntiForgeryToken() %>
         <%: Html.ValidationSummary(true) %>
 
         <fieldset>
             <legend>Log in Form</legend>
-            <ol>
-                <li>
-                    <%: Html.LabelFor(m => m.UserName) %>
-                    <%: Html.TextBoxFor(m => m.UserName) %>
-                    <%: Html.ValidationMessageFor(m => m.UserName) %>
-                </li>
-                <li>
-                    <%: Html.LabelFor(m => m.Password) %>
-                    <%: Html.PasswordFor(m => m.Password) %>
-                    <%: Html.ValidationMessageFor(m => m.Password) %>
-                </li>
-                <li>
-                    <%: Html.CheckBoxFor(m => m.RememberMe) %>
-                    <%: Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" }) %>
-                </li>
-            </ol>
-            <input type="submit" value="Log in" />
+            <table id="tbl_login">
+                <tr>
+                    <td class="float-left"><%: Html.LabelFor(m => m.UserName) %></td>
+                    <td class="float-right">
+                        <%: Html.TextBoxFor(m => m.UserName) %>
+                        <%: Html.ValidationMessageFor(m => m.UserName) %>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="float-left"><%: Html.LabelFor(m => m.Password) %></td>
+                    <td class="float-right">
+                        <%: Html.PasswordFor(m => m.Password) %>
+                        <%: Html.ValidationMessageFor(m => m.Password) %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%: Html.CheckBoxFor(m => m.RememberMe) %>
+                        <%: Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" }) %>
+                    </td>
+                </tr>
+            </table>
+            <input style="margin-left:200px" class="btn btn-success" type="submit" value="Log in" />
         </fieldset>
-        <p>
+        <p style="color:blue; margin-left:100px; margin-top:10px">
             <%: Html.ActionLink("Register", "Register") %> if you don't have an account.
         </p>
-    <% } %>
+        <% } %>
     </section>
 
     <section class="social" id="socialLoginForm">

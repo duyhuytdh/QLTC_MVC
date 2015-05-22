@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-        <style>
+    <style>
         #tbl_tao_quy tr > td {
             padding: 10px;
         }
@@ -22,9 +22,9 @@
                 <label class="glyphicon glyphicon-list"></label>
                 <%: Html.ActionLink("Xem danh mục đơn vị tính", "Index") %>
             </div>
-            <div style="width:500px; text-align: center; margin: 0px auto">
+            <div style="width: 500px; text-align: center; margin: 0px auto">
                 <table id="tbl_tao_quy">
-                   <tr>
+                    <tr>
                         <td>
                             <label class="float-left">Tên đơn vị tính</label></td>
                         <td>
@@ -34,7 +34,7 @@
                             </div>
                         </td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>
                             <label class="float-left">Kí hiệu</label></td>
                         <td>
@@ -44,9 +44,10 @@
                             </div>
                         </td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>
-                            <label class="float-left">Tỉ giá 1 USD = </label></td>
+                            <label class="float-left">Tỉ giá 1 USD = </label>
+                        </td>
                         <td>
                             <div class="editor-field float-right form-control">
                                 <%: Html.EditorFor(model => model.QUY_DOI_USD) %>

@@ -5,37 +5,54 @@
 </asp:Content>
 
 <asp:Content ID="registerContent" ContentPlaceHolderID="MainContent" runat="server">
-    <hgroup class="title">
-        <h1>Register.</h1>
-        <h2>Create a new account.</h2>
-    </hgroup>
-
+    <style>
+        #tbl_dang_ky tr > td {
+            padding: 10px;
+        }
+    </style>
+     <h2 style="text-align: center; padding: 10px 10px 15px 150px">Đăng ký tài khoản</h2>
     <% using (Html.BeginForm()) { %>
-        <%: Html.AntiForgeryToken() %>
-        <%: Html.ValidationSummary() %>
+    <%: Html.AntiForgeryToken() %>
+    <%: Html.ValidationSummary() %>
 
-        <fieldset>
-            <legend>Registration Form</legend>
-            <ol>
-                <li>
-                    <label>Họ và tên</label>
-                    <input id="m_txt_ho_ten" name="m_txt_ho_ten" type="text" />
-                </li>
-                <li>
-                    <%: Html.Label("Tên đăng nhập") %>
-                    <%: Html.TextBoxFor(m => m.UserName) %>
-                </li>
-                <li>
-                    <%: Html.Label("Mật khẩu") %>
-                    <%: Html.PasswordFor(m => m.Password) %>
-                </li>
-                <li>
-                    <%: Html.Label("Xác nhận mật khẩu") %>
-                    <%: Html.PasswordFor(m => m.ConfirmPassword) %>
-                </li>
-            </ol>
-            <input type="submit" value="Register" />
-        </fieldset>
+    <fieldset>
+        <legend>Registration Form</legend>
+        <div style="width: 500px; text-align: center; margin: 0px auto">
+            <table id="tbl_dang_ky">
+                  <tr>
+                    <td>
+                        <label class="float-left">Họ và tên</label></td>
+                    <td>
+                        <input type="text" name="m_txt_ho_ten" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="float-left">Tên đăng nhập (*)</label></td>
+                    <td>
+                        <%: Html.TextBoxFor(m => m.UserName) %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="float-left">Mật khẩu (*)</label></td>
+                    <td>
+                        <%: Html.PasswordFor(m => m.Password) %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="float-left">Xác nhận mật khẩu (*)</label></td>
+                    <td>
+                        <%: Html.PasswordFor(m => m.ConfirmPassword) %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <p>
+            <input class="btn btn-success" style="margin-left:500px" type="submit" value="Đăng ký" />
+        </p>
+    </fieldset>
     <% } %>
 </asp:Content>
 

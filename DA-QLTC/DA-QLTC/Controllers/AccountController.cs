@@ -89,7 +89,11 @@ namespace DA_QLTC.Controllers
                 {
                     QLTC_MVCEntities db = new QLTC_MVCEntities();
                     USER user = new USER();
-                    user.USER_NAME = m_txt_ho_ten;
+                    if (m_txt_ho_ten != null)
+                    {
+                        user.USER_NAME = m_txt_ho_ten;
+                    }
+                    else user.USER_NAME = model.UserName;
                     user.ACCOUNT_NAME = model.UserName;
                     user.PASSWORD = model.Password;
                     db.USERs.Add(user);
