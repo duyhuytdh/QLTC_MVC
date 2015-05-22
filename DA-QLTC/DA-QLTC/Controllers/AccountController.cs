@@ -10,6 +10,7 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using DA_QLTC.Filters;
 using DA_QLTC.Models;
+using System.Data;
 
 namespace DA_QLTC.Controllers
 {
@@ -17,6 +18,13 @@ namespace DA_QLTC.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        List<USER> lst_user;
+        public class user_info {
+            public decimal ID;
+            public string USER_NAME;
+            public string ACCOUNT_NAME;
+            public string PASSWORD;
+        }
         //
         // GET: /Account/Login
 
@@ -41,7 +49,7 @@ namespace DA_QLTC.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không chính xác.");
             return View(model);
         }
 
@@ -114,7 +122,7 @@ namespace DA_QLTC.Controllers
             if (ownerAccount == User.Identity.Name)
             {
                 // Use a transaction to prevent the user from deleting their last login credential
-                using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.Serializable }))
+                using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.Serializable }))
                 {
                     bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
                     if (hasLocalAccount || OAuthWebSecurity.GetAccountsFromUserName(User.Identity.Name).Count > 1)
@@ -135,9 +143,9 @@ namespace DA_QLTC.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+                message == ManageMessageId.ChangePasswordSuccess ? "Mật khẩu của bạn đã được thay đổi."
+                : message == ManageMessageId.SetPasswordSuccess ? "Mật khẩu của bạn đã được đặt lại."
+                : message == ManageMessageId.RemoveLoginSuccess ? "Bạn đã gỡ bỏ việc đăng nhập bằng tài khoản mở rộng."
                 : "";
             ViewBag.HasLocalPassword = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             ViewBag.ReturnUrl = Url.Action("Manage");
@@ -152,6 +160,7 @@ namespace DA_QLTC.Controllers
         public ActionResult Manage(LocalPasswordModel model)
         {
             bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
+           
             ViewBag.HasLocalPassword = hasLocalAccount;
             ViewBag.ReturnUrl = Url.Action("Manage");
             if (hasLocalAccount)
@@ -159,10 +168,17 @@ namespace DA_QLTC.Controllers
                 if (ModelState.IsValid)
                 {
                     // ChangePassword will throw an exception rather than return false in certain failure scenarios.
+                    QLTC_MVCEntities db = new QLTC_MVCEntities();
+                    decimal id_user = get_id_user(User.Identity.Name);
                     bool changePasswordSucceeded;
+                    if (id_user == -1) changePasswordSucceeded = false;
                     try
                     {
                         changePasswordSucceeded = WebSecurity.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword);
+                        //thay doi mat khau trong database
+                        USER user = db.USERs.Find(id_user);
+                        user.PASSWORD = model.NewPassword;
+                        db.SaveChanges();
                     }
                     catch (Exception)
                     {
@@ -175,7 +191,7 @@ namespace DA_QLTC.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                        ModelState.AddModelError("", "Mật khẩu hiện tại là không chính xác hoặc mật khẩu mới là không hợp lệ");
                     }
                 }
             }
@@ -206,6 +222,18 @@ namespace DA_QLTC.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        private decimal get_id_user(string ip_user_name)
+        {
+            QLTC_MVCEntities db = new QLTC_MVCEntities();
+            lst_user = db.USERs.Where(x=> x.ACCOUNT_NAME==ip_user_name).ToList();
+            if(lst_user.Count > 0)
+            {
+                return lst_user[0].ID;
+            }
+            return -1;
+        }
+
 
         //
         // POST: /Account/ExternalLogin
