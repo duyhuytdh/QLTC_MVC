@@ -5,13 +5,13 @@
 </asp:Content>
 
 <asp:Content ID="manageContent" ContentPlaceHolderID="MainContent" runat="server">
-    <hgroup class="title">
-        <h1>Manage Account.</h1>
+    <hgroup class="title" style="text-align:center">
+        <h1 style="color:forestgreen">Quản lý tài khoản</h1>
     </hgroup>
 
     <p class="message-success"><%: (string)ViewBag.StatusMessage %></p>
 
-    <p>You're logged in as <strong><%: User.Identity.Name %></strong>.</p>
+    <p style="color:forestgreen; text-align:center">Bạn đăng nhập với tên tài khoản:<strong><%: User.Identity.Name %></strong>.</p>
 
     <% if (ViewBag.HasLocalPassword) {
         Html.RenderPartial("_ChangePasswordPartial");
