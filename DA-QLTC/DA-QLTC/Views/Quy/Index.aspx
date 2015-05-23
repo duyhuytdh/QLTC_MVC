@@ -10,7 +10,7 @@
             background-color:aliceblue;
         }*/
     </style>
-    <div style="text-align: center; margin: 0px auto; padding-left: 200px">
+    <div style="text-align: center; margin: 0px auto; padding-left: 100px">
         <h2 class="h2">Danh mục quỹ</h2>
     </div>
 
@@ -21,10 +21,10 @@
     <table id="tbl_ds_quy" class="table table-hover table-bordered header-background" style="width: 1000px">
         <thead>
             <tr>
-                <th style="width: 200px">Tên Quỹ</th>
+                <th style="width: 250px">Tên Quỹ</th>
                 <th>Số tiền</th>
                 <th>Đơn vị tính</th>
-                <th>Log số tiền</th>
+               <%-- <th>Log số tiền</th>--%>
                 <th style="width: 200px">Ghi chú</th>
                 <th>Thao tác </th>
             </tr>
@@ -36,15 +36,15 @@
                 <td>
                     <%: Html.DisplayFor(modelItem => item.TEN) %>
                 </td>
-                <td>
+                <td class="format-so-tien">
                     <%: Html.DisplayFor(modelItem => item.SO_TIEN) %>
                 </td>
                 <td>
                     <%: Html.DisplayFor(modelItem => item.DM_DVT.TEN) %>
                 </td>
-                <td>
+               <%-- <td>
                     <%: Html.DisplayFor(modelItem => item.LOG_SO_TIEN) %>
-                </td>
+                </td>--%>
                 <td>
                     <%: Html.DisplayFor(modelItem => item.GHI_CHU) %>
                 </td>
@@ -67,4 +67,12 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var lst = $('.format-so-tien');
+            for (var i = 0; i < lst.length; i++) {
+                $(lst[i]).text(accounting.formatNumber($(lst[i]).text()));
+            }
+        });
+    </script>
 </asp:Content>

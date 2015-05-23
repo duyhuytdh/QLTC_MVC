@@ -2,8 +2,15 @@
 .header-background tr>th {
      background-color:aliceblue;
 }
+.h2 {
+    color:forestgreen;
+    font-family:'Global Serif';
+}
 .label-input-css {
    
+}
+.format-so-tien {
+    text-align:right;
 }
 body
 {

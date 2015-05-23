@@ -98,6 +98,7 @@
     <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/plugins/custom/Format_money.js")%>'></script>
     <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/script.js")%>'></script>
     <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/jquery-ui-1.11.4.js")%>'></script>
+    <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/accounting.js")%>'></script>
     <asp:ContentPlaceHolder ID="ScriptsSection" runat="server"></asp:ContentPlaceHolder>
 </body>
 </html>
