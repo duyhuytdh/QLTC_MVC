@@ -49,7 +49,7 @@
                             <label>Đơn vị tính</label></td>
                         <td style="text-align: left">
                             <div class="editor-field float-right form-control">
-                                <%: Html.DropDownList("ID_DVT", String.Empty) %>
+                                <%: Html.DropDownList("ID_DVT", "VN Đồng") %>
                                 <%: Html.ValidationMessageFor(model => model.ID_DVT) %>
                             </div>
                         </td>

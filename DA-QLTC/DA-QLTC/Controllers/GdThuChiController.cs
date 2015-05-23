@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DA_QLTC.Models;
+using DA_QLTC.App_Start;
 
 namespace DA_QLTC.Controllers
 {
@@ -19,7 +20,9 @@ namespace DA_QLTC.Controllers
 
         public ActionResult Index()
         {
-            var gd_thu_chi = db.GD_THU_CHI.Include(g => g.DM_DVT).Include(g => g.DM_QUY).Include(g => g.DM_THU_CHI);
+            UserControl user_control = new UserControl();
+            decimal id_user = user_control.get_id_user();
+            var gd_thu_chi = db.GD_THU_CHI.Where(g=>g.DM_THU_CHI.ID_USER==id_user).Include(g => g.DM_DVT).Include(g => g.DM_QUY).Include(g => g.DM_THU_CHI);
             return View(gd_thu_chi.ToList());
         }
 

@@ -29,7 +29,7 @@
                         <td>
                             <label class="label-input-css float-left">Ngày giao dịch</label></td>
                         <td>
-                            <input type="text" class="form-control" placeholder="Click để chọn ngày tháng" id="m_dat_ngay" /></td>
+                            <input type="text" class="form-control" placeholder="Click để chọn ngày tháng" id="m_dat_ngay" value="<%=DateTime.Now.ToString("dd/MM/yyy")%>" /></td>
                     </tr>
                     <tr>
                         <td>

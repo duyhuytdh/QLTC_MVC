@@ -11,6 +11,7 @@ using WebMatrix.WebData;
 using DA_QLTC.Filters;
 using DA_QLTC.Models;
 using System.Data;
+using DA_QLTC.App_Start;
 
 namespace DA_QLTC.Controllers
 {

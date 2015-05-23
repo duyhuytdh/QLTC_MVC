@@ -6,13 +6,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DA_QLTC.Models;
+using DA_QLTC.App_Start;
 
 namespace DA_QLTC.Controllers
 {
     [Authorize]
     public class QuyController : Controller
     {
-        
+        decimal m_id_user;
+        UserControl user_control = new UserControl();
         private QLTC_MVCEntities db = new QLTC_MVCEntities();
 
         //
@@ -20,7 +22,8 @@ namespace DA_QLTC.Controllers
 
         public ActionResult Index()
         {
-            var dm_quy = db.DM_QUY.Include(d => d.DM_DVT).Include(d => d.USER);
+            m_id_user = user_control.get_id_user();
+            var dm_quy = db.DM_QUY.Where(d => d.ID_USER == m_id_user).Include(d => d.DM_DVT).Include(d => d.USER);
             return View(dm_quy.ToList());
         }
 
@@ -55,6 +58,7 @@ namespace DA_QLTC.Controllers
         {
             if (ModelState.IsValid)
             {
+                dm_quy.ID_USER = user_control.get_id_user();
                 db.DM_QUY.Add(dm_quy);
                 db.SaveChanges();
                 return RedirectToAction("Index");
