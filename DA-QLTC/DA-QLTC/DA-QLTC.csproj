@@ -406,6 +406,8 @@
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\UI\GD_THU_CHI.js" />
     <Content Include="Style\Admin.css" />
+    <Content Include="Views\User\RoleAddToUser.aspx" />
+    <Content Include="Views\User\RoleCreate.aspx" />
     <Content Include="Views\BaoCao\BaoCaoLichSuGD.aspx" />
     <Content Include="Views\DmThuChi\Create.aspx" />
     <Content Include="Views\DmThuChi\Delete.aspx" />
@@ -432,6 +434,7 @@
     <Content Include="Views\User\Details.aspx" />
     <Content Include="Views\User\Edit.aspx" />
     <Content Include="Views\User\Index.aspx" />
+    <Content Include="Views\User\RoleIndex.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

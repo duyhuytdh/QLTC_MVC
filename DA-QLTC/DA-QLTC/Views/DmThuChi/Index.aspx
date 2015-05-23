@@ -11,7 +11,7 @@
             background-color:aliceblue;
         }*/
     </style>
-    <div style="text-align: center; margin: 0px auto; padding-left: 200px">
+    <div style="text-align: center; margin: 0px auto; padding-left: 100px">
         <h2 class="h2">Danh mục Thu/Chi</h2>
     </div>
 
