@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
@@ -59,14 +60,15 @@
                                 <li role="presentation" class="text-primary"><%: Html.ActionLink("Báo cáo chi", "Index", "DVT") %></li>
                             </ul>
                         </li>
-                        <% if (HttpContext.Current.User.IsInRole("Admin")) {%>
+                        <% if (HttpContext.Current.User.IsInRole("Admin"))
+                           {%>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("Quản lý người dùng", "Index", "User") %></li>
                         <%padding = 100; %>
                         <%}%>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("About", "About", "Home") %></li>
                         <li role="presentation" class="text-primary"><%: Html.ActionLink("Contact", "Contact", "Home") %></li>
-                        <li class="float-right" style="padding-left:<%=padding%>px;margin-top:10px; display:inline;">
-                            <div class="float-right" style="display:inline; color:blue; background-color:gold; height:20px;">
+                        <li class="float-right" style="padding-left: <%=padding%>px; margin-top: 10px; display: inline;">
+                            <div class="float-right" style="display: inline; color: blue; background-color: gold; height: 20px;">
                                 <section id="Section1">
                                     <%: Html.Partial("_LoginPartial") %>
                                 </section>
@@ -78,20 +80,21 @@
             </div>
         </div>
     </header>
-    <div style="min-height: 520px">
+    <div style="min-height: 600px">
         <asp:ContentPlaceHolder ID="FeaturedContent" runat="server" />
         <section class="content-wrapper main-content clear-fix">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </section>
     </div>
-    <footer>
-        <div class="content-wrapper bg-info">
-            <div class="float-left">
-                <p>&copy; <%: DateTime.Now.Year %> - @Copy right Duy-Huy Development</p>
+
+    <footer style="border:1px groove">
+        <div class="" style="">
+            <div style="text-align:center">
+                <p><%: Html.ActionLink("Trang chủ", "Index", "Home") %> | <%: Html.ActionLink("About", "About", "Home") %> | <%: Html.ActionLink("Contact", "Contact", "Home") %></p>
+                <p style="color:black; text-align:center; font-size:12px">&copy; <%: DateTime.Now.Year %> - Copy Right Duy-Huy Development</p>
             </div>
         </div>
     </footer>
-
     <%: Scripts.Render("~/bundles/jquery") %>
     <%: Scripts.Render("~/bundles/jqueryui") %>
     <%: Scripts.Render("~/bundles/modernizr") %>
@@ -103,4 +106,5 @@
     <script type="text/javascript" src='<%=ResolveClientUrl("~/Scripts/accounting.js")%>'></script>
     <asp:ContentPlaceHolder ID="ScriptsSection" runat="server"></asp:ContentPlaceHolder>
 </body>
+
 </html>
