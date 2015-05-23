@@ -55,7 +55,7 @@
                         <td>
                             <label class="label-input-css float-left">Số tiền</label></td>
                         <td style="text-align: left">
-                            <div class="editor-field float-right form-control format_money">
+                            <div class="editor-field float-right form-control">
                                 <%: Html.EditorFor(model => model.SO_TIEN)%>
                                 <%: Html.ValidationMessageFor(model => model.SO_TIEN) %>
                             </div>
@@ -108,5 +108,13 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
     <%: Scripts.Render("~/bundles/jqueryval") %>
-    <script src="../../Scripts/UI/GD_THU_CHI.js"></script>
+     <script type="text/javascript">
+         $(document).ready(function () {
+             var lst = $('.format-so-tien');
+             for (var i = 0; i < lst.length; i++) {
+                 $(lst[i]).text(accounting.formatNumber($(lst[i]).text()));
+             }
+             $('#m_dat_ngay').datepicker({ dateFormat: 'dd/mm/yy', gotoCurrent: true, setDate: new Date() });
+         });
+    </script>
 </asp:Content>

@@ -120,7 +120,7 @@
     <div class="display-label">
         <%: Html.DisplayNameFor(model => model.SO_TIEN) %>
     </div>
-    <div class="display-field">
+    <div class="display-field format-so-tien">
         <%: Html.DisplayFor(model => model.SO_TIEN) %>
     </div>
 
@@ -157,4 +157,13 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
+     <script type="text/javascript">
+         $(document).ready(function () {
+             var lst = $('.format-so-tien');
+             for (var i = 0; i < lst.length; i++) {
+                 $(lst[i]).text(accounting.formatNumber($(lst[i]).text()));
+             }
+             $('#m_dat_ngay').datepicker({ dateFormat: 'dd/mm/yy', gotoCurrent: true, setDate: new Date() });
+         });
+    </script>
 </asp:Content>

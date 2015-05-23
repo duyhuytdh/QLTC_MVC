@@ -60,7 +60,7 @@
         <td>
             <%: Html.DisplayFor(modelItem => item.DM_THU_CHI.DM_TU_DIEN.TEN) %>
         </td>
-        <td>
+        <td class="format-so-tien">
             <%: Html.DisplayFor(modelItem => item.SO_TIEN) %>
         </td>
         <td>
@@ -91,4 +91,12 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
+     <script type="text/javascript">
+         $(document).ready(function () {
+             var lst = $('.format-so-tien');
+             for (var i = 0; i < lst.length; i++) {
+                 $(lst[i]).text(accounting.formatNumber($(lst[i]).text()));
+             }
+         });
+    </script>
 </asp:Content>

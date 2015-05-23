@@ -404,7 +404,6 @@
     <Content Include="Scripts\plugins\select2-select2-ng\dist\js\select2.js" />
     <Content Include="Scripts\plugins\select2-select2-ng\dist\js\select2.min.js" />
     <Content Include="Scripts\script.js" />
-    <Content Include="Scripts\UI\GD_THU_CHI.js" />
     <Content Include="Style\Admin.css" />
     <Content Include="Views\Account\RoleAddToUser.aspx" />
     <Content Include="Views\Account\RoleCreate.aspx" />
