@@ -18,14 +18,14 @@ namespace DA_QLTC.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
+            ViewBag.Message = "Hệ thống quản lý tài chính cá nhân";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Liên hệ";
 
             return View();
         }

@@ -5,21 +5,15 @@
 </asp:Content>
 
 <asp:Content ID="contactContent" ContentPlaceHolderID="MainContent" runat="server">
-    <hgroup class="title">
-        <h1>Contact.</h1>
-        <h2><%: ViewBag.Message %></h2>
-    </hgroup>
+        <div style="text-align:center">
+            <h2> <%: ViewBag.Message %></h2>
+
     <section class="contact">
         <header>
             <h3>Phone:</h3>
         </header>
         <p>
-            <span class="label">Main:</span>
-            <span>425.555.0100</span>
-        </p>
-        <p>
-            <span class="label">After Hours:</span>
-            <span>425.555.0199</span>
+            <span>0169 201 1280</span>
         </p>
     </section>
 
@@ -28,26 +22,27 @@
             <h3>Email:</h3>
         </header>
         <p>
-            <span class="label">Support:</span>
-            <span><a href="mailto:Support@example.com">Support@example.com</a></span>
+            <span >Support:</span>
+            <span><a href="mailto:duyhuytdh@gmail.com">duyhuytdh@gmail.com</a></span>
         </p>
         <p>
-            <span class="label">Marketing:</span>
-            <span><a href="mailto:Marketing@example.com">Marketing@example.com</a></span>
+            <span >Marketing:</span>
+            <span><a href="mailto:knjght9x15@gmail.com">knjght9x15@gmail.com</a></span>
         </p>
         <p>
-            <span class="label">General:</span>
-            <span><a href="mailto:General@example.com">General@example.com</a></span>
+            <span>General:</span>
+            <span><a href="mailto:duyhuytdh@gmail.com">duyhuytdh@gmail.com</a></span>
         </p>
     </section>
 
     <section class="contact">
         <header>
-            <h3>Address:</h3>
+            <h3>Địa chỉ:</h3>
         </header>
         <p>
-            One Microsoft Way<br />
-            Redmond, WA 98052-6399
+            Nhà D3 Viện Toán Ứng Dụng và Tin Học<br />
+            Trường đại học Bách Khoa Hà Nội, số 1 Đại Cồ Việt - Hai Bà Trưng - Hà Nội
         </p>
     </section>
+    </div>
 </asp:Content>
