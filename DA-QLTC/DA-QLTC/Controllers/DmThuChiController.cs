@@ -6,21 +6,23 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DA_QLTC.Models;
+using DA_QLTC.App_Start;
 
 namespace DA_QLTC.Controllers
 {
     [Authorize]
     public class DmThuChiController : Controller
     {
-        
+        UserControl user_control = new UserControl();
         private QLTC_MVCEntities db = new QLTC_MVCEntities();
-
+  
         //
         // GET: /DmThuChi/
 
         public ActionResult Index()
         {
-            var dm_thu_chi = db.DM_THU_CHI.Include(d => d.DM_TU_DIEN).Include(d => d.USER);
+            decimal v_id_user = user_control.get_id_user();
+            var dm_thu_chi = db.DM_THU_CHI.Where(x => x.ID_USER == v_id_user).Include(d => d.DM_TU_DIEN).Include(d => d.USER);
             return View(dm_thu_chi.ToList());
         }
 
@@ -55,6 +57,7 @@ namespace DA_QLTC.Controllers
         {
             if (ModelState.IsValid)
             {
+                dm_thu_chi.ID_USER = user_control.get_id_user();
                 db.DM_THU_CHI.Add(dm_thu_chi);
                 db.SaveChanges();
                 return RedirectToAction("Index");
