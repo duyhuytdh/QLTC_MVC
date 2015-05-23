@@ -13,7 +13,7 @@
         <label class="glyphicon glyphicon-plus"></label>
         <%: Html.ActionLink("Thêm user", "Create") %>
         <label class="glyphicon glyphicon-plus"></label>
-        <%: Html.ActionLink("Thêm role", "RoleCreate") %>
+        <%: Html.ActionLink("Thêm role", "RoleCreate","Account") %>
     </p>
     <table id="tbl_ds_quy" class="table table-hover table-bordered header-background" style="width: 1000px">
         <thead>

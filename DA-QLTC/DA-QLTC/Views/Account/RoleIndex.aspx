@@ -27,7 +27,7 @@
                     <td>
                         <label class="glyphicon glyphicon-trash"></label>
                         <span onclick="return confirm('Are you sure to delete?')">
-                            <a href="/User/RoleDelete?RoleName=<%=s%>" class="delLink">Delete</a>
+                            <a href="/Account/RoleDelete?RoleName=<%=s%>" class="delLink">Delete</a>
                         </span>
                     </td>
                 </tr>

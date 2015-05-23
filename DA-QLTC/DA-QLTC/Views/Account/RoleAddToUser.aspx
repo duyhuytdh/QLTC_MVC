@@ -12,7 +12,7 @@
 
         <h2>Role Add to User</h2>
 
-        <% using (Html.BeginForm("RoleAddToUser", "User"))
+        <% using (Html.BeginForm("RoleAddToUser", "Account"))
            {%>
         <%: Html.AntiForgeryToken()%>
         <%:Html.ValidationSummary(true)%>
@@ -28,7 +28,7 @@
 
 
         <div class="hr"></div>
-        <% using (Html.BeginForm("GetRoles", "User"))
+        <% using (Html.BeginForm("GetRoles", "Account"))
            {%>
         <%:Html.AntiForgeryToken() %>
         <p>
@@ -50,7 +50,7 @@
 
         <h3>Delete A User from a Role</h3>
 
-        <% using (Html.BeginForm("DeleteRoleForUser", "User"))
+        <% using (Html.BeginForm("DeleteRoleForUser", "Account"))
            {%>
         <%: Html.AntiForgeryToken()%>
         <%:Html.ValidationSummary(true)%>
