@@ -25,6 +25,9 @@
          <th style="width:100px">
             Tên danh mục
         </th>
+        <th>
+            Loại giao dịch
+        </th>
           <th style="width:100px">
             Số tiền
         </th>
@@ -52,7 +55,10 @@
             <%: Html.DisplayFor(modelItem => item.TEN_GIAO_DICH) %>
         </td>
         <td>
-            <%Html.DisplayFor(modelItem => item.DM_THU_CHI.TEN);%>
+            <%: Html.DisplayFor(modelItem => item.DM_THU_CHI.TEN)%> 
+        </td>
+        <td>
+            <%: Html.DisplayFor(modelItem => item.DM_THU_CHI.DM_TU_DIEN.TEN) %>
         </td>
         <td>
             <%: Html.DisplayFor(modelItem => item.SO_TIEN) %>

@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaoCaoController.cs" />
     <Compile Include="Controllers\DmThuChiController.cs" />
     <Compile Include="Controllers\DVTController.cs" />
     <Compile Include="Controllers\GdThuChiController.cs" />
@@ -404,6 +405,7 @@
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\UI\GD_THU_CHI.js" />
     <Content Include="Style\Admin.css" />
+    <Content Include="Views\BaoCao\BaoCaoLichSuGD.aspx" />
     <Content Include="Views\DmThuChi\Create.aspx" />
     <Content Include="Views\DmThuChi\Delete.aspx" />
     <Content Include="Views\DmThuChi\Details.aspx" />

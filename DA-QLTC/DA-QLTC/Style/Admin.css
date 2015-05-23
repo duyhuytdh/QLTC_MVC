@@ -11,6 +11,8 @@
 }
 .format-so-tien {
     text-align:right;
+    font-weight:bold;
+    color:blue;
 }
 body
 {

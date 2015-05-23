@@ -12,7 +12,7 @@
         <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
     <% } %>
 <% } else { %>
-        <label class="glyphicon glyphicon-heart"></label>
+        <label class="glyphicon glyphicon-edit"></label>
         <%: Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })%>
          <label class="glyphicon glyphicon-log-in"></label>
         <%: Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })%>
