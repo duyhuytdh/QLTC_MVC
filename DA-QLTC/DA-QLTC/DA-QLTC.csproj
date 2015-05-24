@@ -409,6 +409,7 @@
     <Content Include="Views\Account\RoleCreate.aspx" />
     <Content Include="Views\Account\RoleIndex.aspx" />
     <Content Include="Views\BaoCao\BaoCaoLichSuGD.aspx" />
+    <Content Include="Views\BaoCao\BaoCaoTheoQuy.aspx" />
     <Content Include="Views\DmThuChi\Create.aspx" />
     <Content Include="Views\DmThuChi\Delete.aspx" />
     <Content Include="Views\DmThuChi\Details.aspx" />
