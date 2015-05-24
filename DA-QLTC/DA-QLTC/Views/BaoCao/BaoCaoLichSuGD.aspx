@@ -8,21 +8,64 @@
 
     <h2 class="h2" style="text-align: center">Báo cáo Lịch sử giao dịch</h2>
 
-    <table>
+    <table style="padding: 10px; margin-left: 280px">
         <tr>
             <td>
                 <label class="label-input-css float-left">Từ ngày</label></td>
-            <td>
-                <input type="text" class="form-control" placeholder="Click để chọn ngày tháng" id="m_dat_tu_ngay" /></td>
-        </tr>
-          <tr>
+            <td>&nbsp;&nbsp;<input type="text" class="form-control" style="width: 100px" placeholder="Click để chọn ngày tháng" id="m_dat_tu_ngay" /></td>
+            <td style="width: 20px"></td>
             <td>
                 <label class="label-input-css float-left">Đến ngày</label></td>
-            <td>
-                <input type="text" class="form-control" placeholder="Click để chọn ngày tháng" id="m_dat_den_ngay" /></td>
+
+            <td>&nbsp;&nbsp;<input type="text" class="form-control" style="width: 100px" placeholder="Click để chọn ngày tháng" id="m_dat_den_ngay" /></td>
         </tr>
     </table>
-
+    <br />
+    <br />
+    <table>
+        <tr>
+            <td>
+                <div style="width: 220px">
+                    <label class="label-input-css float-left">Loại giao dịch</label>
+                <div class="editor-field float-right form-control">
+                    <select style="width: 100px">
+                        <option value="Thu nhập">Thu nhập</option>
+                        <option value="Chi tiêu">Chi tiêu</option>
+                    </select>
+                </div>
+                </div>
+            </td>
+            <td style="width:20px"></td>
+            <td>
+                <div style="width: 270px">
+                    <label class="label-input-css float-left">Quỹ giao dịch</label>
+                <div class="editor-field float-right form-control">
+                    <select style="width: 150px">
+                        <option value="Tài chính">Tài chính</option>
+                        <option value="Giáo dục">Giáo dục</option>
+                    </select>
+                </div>
+                </div>
+            </td>
+              <td style="width:20px"></td>
+            <td>
+                 <div style="width: 250px">
+                    <label class="label-input-css float-left">Danh mục</label>
+                <div class="editor-field float-right form-control">
+                  <select style="width: 150px">
+                        <option value="Tài chính">Mua sách</option>
+                        <option value="Giáo dục">Làm partime</option>
+                    </select>
+                </div>
+                     </div>
+            </td>
+            <td style="width:20px"></td>
+            <td style="width:200px">
+                <input class="btn btn-sm btn-primary" type="button" value="Lọc dữ liệu"/>
+                <input class="btn btn-sm btn-success" type="button" value="Xuất Excel"/>
+            </td>
+        </tr>
+    </table>
     <table id="tbl_bc_tong_hop" class="table table-hover table-bordered header-background" style="width: 1000px">
         <thead>
             <tr>
