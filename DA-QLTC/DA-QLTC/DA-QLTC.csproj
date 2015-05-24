@@ -283,6 +283,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Icon.png" />
     <Content Include="Images\header.png" />
+    <Content Include="Images\piggy.jpg" />
+    <Content Include="Images\piggy.png" />
     <Content Include="Images\ui-icons_222222_256x240.png" />
     <Content Include="Scripts\accounting.js" />
     <Content Include="Scripts\bootstrap.js" />

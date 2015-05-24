@@ -22,6 +22,7 @@
     </table>
     <br />
     <br />
+    <div style="text-align:center"> <input class="btn btn-sm btn-success" type="button" value="Xuất Excel"/></div>
     <table id="tbl_bc_tong_hop" class="table table-hover table-bordered header-background" style="width: 1000px">
         <thead>
             <tr>

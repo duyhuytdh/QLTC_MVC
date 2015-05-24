@@ -5,12 +5,13 @@
 </asp:Content>
 
 <asp:Content ID="indexFeatured" ContentPlaceHolderID="FeaturedContent" runat="server">
-    <%--    <section class="featured">
-        <div class="content-wrapper">
-        </div>
-    </section>--%>
+    <%--<div style="width:1000px; min-height:600px; background-image:url("/Images/piggy.jpg")">
+    <img src="../../Images/piggy.jpg" />
+</div>--%>
+    <p class="site-title">
+        <img src="../../Images/piggy.png" alt="Header image" style="width: 1000px; height: 550px; margin-left:195px">
+    </p>
 </asp:Content>
 
 <asp:Content ID="indexContent" ContentPlaceHolderID="MainContent" runat="server">
-
 </asp:Content>
