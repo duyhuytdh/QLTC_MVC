@@ -55,7 +55,7 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Báo cáo <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li role="presentation" class="text-primary"><%: Html.ActionLink("Lịch sử gia dịch", "BaoCaoLichSuGD", "BaoCao") %></li>
+                                <li role="presentation" class="text-primary"><%: Html.ActionLink("Lịch sử giao dịch", "BaoCaoLichSuGD", "BaoCao") %></li>
                                 <li role="presentation" class="text-primary"><%: Html.ActionLink("Tổng hợp theo Quỹ", "BaoCaoTheoQuy", "BaoCao") %></li>
                             </ul>
                         </li>
