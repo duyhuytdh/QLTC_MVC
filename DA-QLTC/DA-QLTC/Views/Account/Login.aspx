@@ -50,10 +50,10 @@
         <% } %>
     </section>
 
-    <section class="social" id="socialLoginForm">
+   <%-- <section class="social" id="socialLoginForm">
         <h2>Use another service to log in.</h2>
         <%: Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl }) %>
-    </section>
+    </section>--%>
 </asp:Content>
 
 <asp:Content ID="scriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">
