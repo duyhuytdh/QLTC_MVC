@@ -48,7 +48,7 @@
     <tbody>
       <% foreach (var item in Model) { %>
     <tr>
-        <td>
+        <td class="format-ngay-thang">
             <%: Html.DisplayFor(modelItem => item.THOI_GIAN) %>
         </td>
         <td>
@@ -92,10 +92,30 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
      <script type="text/javascript">
+         function ShowDate(DateSql) {
+             //var now = new Date(DateSql);
+             //var then = DateSql.getFullYear() + '-' + (DateSql.getMonth() + 1) + '-' + DateSql.getDay();
+             //then += ' ' + DateSql.getHours() + ':' + DateSql.getMinutes();
+             //alert(DateSql + '\n' + then);
+             var sqlDateStr = DateSql.val(); // as for MySQL DATETIME
+             sqlDateStr = sqlDateStr.replace(/:| /g, "-");
+             var YMDhms = sqlDateStr.split("-");
+             var sqlDate = new Date();
+             sqlDate.setFullYear(parseInt(YMDhms[0]), parseInt(YMDhms[1]) - 1,
+                                                      parseInt(YMDhms[2]));
+             sqlDate.setHours(parseInt(YMDhms[3]), parseInt(YMDhms[4]),
+                                                   parseInt(YMDhms[5]), 0/*msValue*/);
+             alert(sqlDate);
+         }
          $(document).ready(function () {
              var lst = $('.format-so-tien');
              for (var i = 0; i < lst.length; i++) {
                  $(lst[i]).text(accounting.formatNumber($(lst[i]).text()));
+             }
+             ShowDate();
+             var lstDate = $('.format-ngay-thang');
+             for (var i = 0; i < lstDate.length; i++) {
+                 ShowDate($(lstDate[i]));
              }
          });
     </script>

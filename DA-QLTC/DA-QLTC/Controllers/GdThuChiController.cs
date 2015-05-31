@@ -14,10 +14,14 @@ namespace DA_QLTC.Controllers
     public class GdThuChiController : Controller
     {
         private QLTC_MVCEntities db = new QLTC_MVCEntities();
-
+        decimal money_before_edit;
+        public class LoaiGD
+        {
+            public const decimal Thu = 1;
+            public const decimal Chi = 2;
+        }
         //
         // GET: /GdThuChi/
-
         public ActionResult Index()
         {
             UserControl user_control = new UserControl();
@@ -54,12 +58,17 @@ namespace DA_QLTC.Controllers
         // POST: /GdThuChi/Create
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(GD_THU_CHI gd_thu_chi)
         {
             if (ModelState.IsValid)
             {
+                string strNgay = Request["txt_ngay"].ToString();
+                IFormatProvider culture = new System.Globalization.CultureInfo("fr-FR", true);
+                DateTime dat_ngay = DateTime.Parse(strNgay, culture, System.Globalization.DateTimeStyles.AssumeLocal);
+                gd_thu_chi.THOI_GIAN = dat_ngay;
+
                 db.GD_THU_CHI.Add(gd_thu_chi);
+                update_tien_quy(gd_thu_chi, "Create");
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -70,12 +79,14 @@ namespace DA_QLTC.Controllers
             return View(gd_thu_chi);
         }
 
+
         //
         // GET: /GdThuChi/Edit/5
 
         public ActionResult Edit(decimal id = 0)
         {
             GD_THU_CHI gd_thu_chi = db.GD_THU_CHI.Find(id);
+            money_before_edit = gd_thu_chi.SO_TIEN;
             if (gd_thu_chi == null)
             {
                 return HttpNotFound();
@@ -90,12 +101,16 @@ namespace DA_QLTC.Controllers
         // POST: /GdThuChi/Edit/5
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit(GD_THU_CHI gd_thu_chi)
         {
             if (ModelState.IsValid)
             {
+                string strNgay = Request["txt_ngay"].ToString();
+                IFormatProvider culture = new System.Globalization.CultureInfo("fr-FR", true);
+                DateTime dat_ngay = DateTime.Parse(strNgay, culture, System.Globalization.DateTimeStyles.AssumeLocal);
+                gd_thu_chi.THOI_GIAN = dat_ngay;
                 db.Entry(gd_thu_chi).State = EntityState.Modified;
+                update_tien_quy(gd_thu_chi, "Edit");
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -122,19 +137,62 @@ namespace DA_QLTC.Controllers
         // POST: /GdThuChi/Delete/5
 
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(decimal id)
         {
             GD_THU_CHI gd_thu_chi = db.GD_THU_CHI.Find(id);
             db.GD_THU_CHI.Remove(gd_thu_chi);
+            update_tien_quy(gd_thu_chi, "Delete");
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        protected override void Dispose(bool disposing)
+        private void update_tien_quy(GD_THU_CHI gd_thu_chi, string trang_thai)
         {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
+                    DM_QUY dm_quy = db.DM_QUY.Find(gd_thu_chi.ID_QUY);
+                    DM_THU_CHI dm_thu_chi = db.DM_THU_CHI.Find(gd_thu_chi.ID_THU_CHI);
+                    //log lai so tien ban dau
+                    dm_quy.LOG_SO_TIEN = dm_quy.SO_TIEN;
+                    //xet xem loai id la thu them + them, nguoc lai la chi thi - di.
+                    if (trang_thai == "Create")
+                    {
+                        if (dm_thu_chi.ID_LOAI== 1)
+                        {
+                            dm_quy.SO_TIEN = dm_quy.SO_TIEN + gd_thu_chi.SO_TIEN;
+                        }
+                        else if (dm_thu_chi.ID_LOAI == LoaiGD.Chi)
+                        {
+                            dm_quy.SO_TIEN = dm_quy.SO_TIEN - gd_thu_chi.SO_TIEN;
+                        }
+                    }
+                    if (trang_thai == "Edit")
+                    {
+                        if (dm_thu_chi.ID_LOAI == LoaiGD.Thu)
+                        {
+                            dm_quy.SO_TIEN = dm_quy.SO_TIEN + gd_thu_chi.SO_TIEN - money_before_edit;
+                        }
+                        else if (dm_thu_chi.ID_LOAI == LoaiGD.Chi)
+                        {
+                            dm_quy.SO_TIEN = dm_quy.SO_TIEN - gd_thu_chi.SO_TIEN + money_before_edit;
+                        }
+                    }
+                    if (trang_thai == "Delete")
+                    {
+                        if (dm_thu_chi.ID_LOAI == LoaiGD.Thu)
+                        {
+                            dm_quy.SO_TIEN = dm_quy.SO_TIEN - gd_thu_chi.SO_TIEN;
+                        }
+                        else if (dm_thu_chi.ID_LOAI == LoaiGD.Chi)
+                        {
+                            dm_quy.SO_TIEN = dm_quy.SO_TIEN + gd_thu_chi.SO_TIEN;
+                        }
+                    }
+                    //db.DM_QUY.Add(dm_quy);
+                    db.Entry(dm_quy).State = EntityState.Modified;
+                    //db.SaveChanges();
+            }
+            protected override void Dispose(bool disposing)
+            {
+                db.Dispose();
+                base.Dispose(disposing);
+            }
     }
 }
