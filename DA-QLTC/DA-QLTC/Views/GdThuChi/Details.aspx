@@ -29,7 +29,7 @@
                             <label class="float-left">Ngày giao dịch</label></td>
                         <td>
                             <div class="display-field float-left form-control-static">
-                                <%: Html.DisplayFor(model => model.THOI_GIAN) %>
+                              <span><%=ViewData["txt_ngay"]%></span>
                             </div>
                         </td>
                     </tr>

@@ -40,6 +40,9 @@ namespace DA_QLTC.Controllers
         public ActionResult Details(decimal id = 0)
         {
             GD_THU_CHI gd_thu_chi = db.GD_THU_CHI.Find(id);
+            string Data_format = Convert.ToDateTime(gd_thu_chi.THOI_GIAN).ToString("dd/MM/yyyy"
+                                                  , culture);
+            ViewData["txt_ngay"] = Data_format;
             if (gd_thu_chi == null)
             {
                 return HttpNotFound();
