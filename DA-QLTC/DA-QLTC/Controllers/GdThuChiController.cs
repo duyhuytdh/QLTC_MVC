@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using DA_QLTC.Models;
 using DA_QLTC.App_Start;
+using System.Globalization;
 
 namespace DA_QLTC.Controllers
 {
@@ -15,6 +16,8 @@ namespace DA_QLTC.Controllers
     {
         private QLTC_MVCEntities db = new QLTC_MVCEntities();
         decimal money_before_edit;
+        //dinh dang ngay thang theo dd/MM/yyyy
+        IFormatProvider culture = new System.Globalization.CultureInfo("fr-FR", true);
         public class LoaiGD
         {
             public const decimal Thu = 1;
@@ -27,6 +30,7 @@ namespace DA_QLTC.Controllers
             UserControl user_control = new UserControl();
             decimal id_user = user_control.get_id_user();
             var gd_thu_chi = db.GD_THU_CHI.Where(g=>g.DM_THU_CHI.ID_USER==id_user).Include(g => g.DM_DVT).Include(g => g.DM_QUY).Include(g => g.DM_THU_CHI);
+
             return View(gd_thu_chi.ToList());
         }
 
@@ -63,7 +67,6 @@ namespace DA_QLTC.Controllers
             if (ModelState.IsValid)
             {
                 string strNgay = Request["txt_ngay"].ToString();
-                IFormatProvider culture = new System.Globalization.CultureInfo("fr-FR", true);
                 DateTime dat_ngay = DateTime.Parse(strNgay, culture, System.Globalization.DateTimeStyles.AssumeLocal);
                 gd_thu_chi.THOI_GIAN = dat_ngay;
 
@@ -87,6 +90,10 @@ namespace DA_QLTC.Controllers
         {
             GD_THU_CHI gd_thu_chi = db.GD_THU_CHI.Find(id);
             money_before_edit = gd_thu_chi.SO_TIEN;
+
+            string Data_format = Convert.ToDateTime(gd_thu_chi.THOI_GIAN).ToString("dd/MM/yyyy"
+                                                  ,culture);
+            ViewData["txt_ngay"] = Data_format;
             if (gd_thu_chi == null)
             {
                 return HttpNotFound();
@@ -106,7 +113,6 @@ namespace DA_QLTC.Controllers
             if (ModelState.IsValid)
             {
                 string strNgay = Request["txt_ngay"].ToString();
-                IFormatProvider culture = new System.Globalization.CultureInfo("fr-FR", true);
                 DateTime dat_ngay = DateTime.Parse(strNgay, culture, System.Globalization.DateTimeStyles.AssumeLocal);
                 gd_thu_chi.THOI_GIAN = dat_ngay;
                 db.Entry(gd_thu_chi).State = EntityState.Modified;

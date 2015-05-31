@@ -28,23 +28,7 @@
                     <tr>
                         <td>
                             <label class="label-input-css float-left">Ngày giao dịch</label></td>
-                        <%--<td>
-                            <div class="container">
-                                <div class="row" style="width: 300px">
-                                    <div class='col-sm-6'>
-                                        <div class="form-group">
-                                            <div class='input-group date' id='datetimepicker1'>
-                                                <input type='text' class="form-control" />
-                                                <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                </span>
-                                            </div>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </div>
-                        </td>--%>
-                        <td> <input  type="text" placeholder="click to show datepicker"  id="m_dat_ngay"></td>
+                        <td> <input name="txt_ngay"  type="text" placeholder="click to show datepicker"  id="m_dat_ngay" value="<%=ViewData["txt_ngay"]%>"></td>
                     </tr>
                     <tr>
                         <td>

@@ -49,7 +49,8 @@
       <% foreach (var item in Model) { %>
     <tr>
         <td class="format-ngay-thang">
-            <%: Html.DisplayFor(modelItem => item.THOI_GIAN) %>
+            <%= Convert.ToDateTime(item.THOI_GIAN).ToString("dd/MM/yyyy"
+                                                  ,new System.Globalization.CultureInfo("fr-FR", true))%>
         </td>
         <td>
             <%: Html.DisplayFor(modelItem => item.TEN_GIAO_DICH) %>
