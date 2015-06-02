@@ -9,7 +9,7 @@ using DA_QLTC.Models;
 
 namespace DA_QLTC.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class DVTController : Controller
     {
         private QLTC_MVCEntities db = new QLTC_MVCEntities();

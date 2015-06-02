@@ -38,7 +38,7 @@
                         <td>
                             <label class="float-left">Số tiền</label></td>
                         <td>
-                            <div class="display-field float-left form-control-static">
+                            <div class="display-field float-left form-control-static format-so-tien">
                                 <%: Html.DisplayFor(model => model.SO_TIEN) %>
                             </div>
                         </td>
@@ -79,4 +79,12 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var lst = $('.format-so-tien');
+            for (var i = 0; i < lst.length; i++) {
+                $(lst[i]).text(accounting.formatNumber($(lst[i]).text()));
+            }
+        });
+    </script>
 </asp:Content>

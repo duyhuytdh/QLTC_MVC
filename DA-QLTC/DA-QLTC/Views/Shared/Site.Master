@@ -45,7 +45,10 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục Quỹ", "Index", "Quy") %></li>
                                 <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục Thu/Chi", "Index", "DmThuChi") %></li>
+                                <% if (HttpContext.Current.User.IsInRole("Admin"))
+                                {%>
                                 <li role="presentation" class="text-primary"><%: Html.ActionLink("Danh mục đơn vị tính", "Index", "DVT") %></li>
+                                <%} %>
                             </ul>
                         </li>
 
@@ -86,11 +89,11 @@
         </section>
     </div>
 
-    <footer style="border:1px groove">
+    <footer style="border: 1px groove">
         <div class="" style="">
-            <div style="text-align:center">
+            <div style="text-align: center">
                 <p><%: Html.ActionLink("Trang chủ", "Index", "Home") %> | <%: Html.ActionLink("About", "About", "Home") %> | <%: Html.ActionLink("Contact", "Contact", "Home") %></p>
-                <p style="color:black; text-align:center; font-size:12px">&copy; <%: DateTime.Now.Year %> - Copy Right Duy-Huy Development</p>
+                <p style="color: black; text-align: center; font-size: 12px">&copy; <%: DateTime.Now.Year %> - Copy Right Duy-Huy Development</p>
             </div>
         </div>
     </footer>

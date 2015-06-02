@@ -10,7 +10,7 @@
             padding: 10px;
         }
     </style>
-    <h2 style="text-align: center; padding: 10px 10px 15px 150px">Chi tiết quỹ</h2>
+    <h2 style="text-align: center; padding: 10px 10px 15px 100px">Chi tiết quỹ</h2>
     <div style="text-align: center; margin: 0px auto; width: 100%">
         <% using (Html.BeginForm())
            { %>

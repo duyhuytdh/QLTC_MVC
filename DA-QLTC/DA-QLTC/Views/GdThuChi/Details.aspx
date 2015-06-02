@@ -10,7 +10,7 @@
             padding: 10px;
         }
     </style>
-    <h2 style="text-align: center; padding: 10px 10px 15px 150px">Chi tiết quỹ</h2>
+    <h2 style="text-align: center; padding: 10px 10px 15px 150px">Chi tiết giao dịch</h2>
     <div style="text-align: center; margin: 0px auto; width: 100%">
         <% using (Html.BeginForm())
            { %>
@@ -22,7 +22,7 @@
                 <label class="glyphicon glyphicon-list"></label>
                 <%: Html.ActionLink("Xem lịch sử giao dịch thu/chi", "Index") %>
             </div>
-            <div style="width: 500px; text-align: center; margin: 0px auto">
+            <div style="width: 500px; text-align: center; margin: 0px auto; padding:10px">
                 <table id="tbl_them_chu_chi">
                     <tr>
                         <td>
@@ -55,7 +55,7 @@
                         <td>
                             <label class="float-left">Số tiền</label></td>
                         <td>
-                            <div class="display-field float-left form-control-static">
+                            <div class="display-field float-left form-control-static format-so-tien">
                                 <%: Html.DisplayFor(model => model.SO_TIEN) %>
                             </div>
                         </td>
@@ -98,59 +98,6 @@
         </fieldset>
         <% } %>
     </div>
-<h2>Details</h2>
-
-<fieldset>
-    <legend>GD_THU_CHI</legend>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.THOI_GIAN) %>
-    </div>
-    <div class="display-field">
-        <%: Html.DisplayFor(model => model.THOI_GIAN) %>
-    </div>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.DM_THU_CHI.TEN) %>
-    </div>
-    <div class="display-field">
-        <%: Html.DisplayFor(model => model.DM_THU_CHI.TEN) %>
-    </div>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.SO_TIEN) %>
-    </div>
-    <div class="display-field format-so-tien">
-        <%: Html.DisplayFor(model => model.SO_TIEN) %>
-    </div>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.DM_DVT.TEN) %>
-    </div>
-    <div class="display-field">
-        <%: Html.DisplayFor(model => model.DM_DVT.TEN) %>
-    </div>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.DM_QUY.TEN) %>
-    </div>
-    <div class="display-field">
-        <%: Html.DisplayFor(model => model.DM_QUY.TEN) %>
-    </div>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.GHI_CHU) %>
-    </div>
-    <div class="display-field">
-        <%: Html.DisplayFor(model => model.GHI_CHU) %>
-    </div>
-</fieldset>
-<p>
-
-    <%: Html.ActionLink("Edit", "Edit", new { id=Model.ID }) %> |
-    <%: Html.ActionLink("Back to List", "Index") %>
-</p>
-
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
