@@ -7,9 +7,13 @@ using System.Web;
 using System.Web.Mvc;
 using DA_QLTC.Models;
 using DA_QLTC.App_Start;
+using System.Web.UI.WebControls;
+using System.IO;
+using System.Web.UI;
 
 namespace DA_QLTC.Controllers
 {
+    [Authorize]
     public class BaoCaoController : Controller
     {
         public class BCQuy
@@ -23,7 +27,7 @@ namespace DA_QLTC.Controllers
         List<GD_THU_CHI> list_thu_chi;
         List<BCQuy> list_bc_quy;
 
-        UserControl user_control = new UserControl();
+        DA_QLTC.App_Start.UserControl user_control = new DA_QLTC.App_Start.UserControl();
         private QLTC_MVCEntities db = new QLTC_MVCEntities();
         //
         // GET: /BaoCaoTongHop/
@@ -68,6 +72,25 @@ namespace DA_QLTC.Controllers
             ViewBag.list_bc = list_bc_quy;
             return View(list_bc_quy);
         }
+        public ActionResult ExportData()
+        {
+            decimal v_id_user = user_control.get_id_user();
+            GridView gv = new GridView();
+            gv.DataSource = db.GD_THU_CHI.Where(x => x.DM_THU_CHI.ID_USER == v_id_user).Include(g => g.DM_DVT).Include(g => g.DM_QUY).Include(g => g.DM_THU_CHI).ToList();
+            gv.DataBind();
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment; filename=Marklist.xlsx");
+            Response.ContentType = "application/ms-excel";
+            Response.Charset = "";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            gv.RenderControl(htw);
+            Response.Output.Write(sw.ToString());
+            Response.Flush();
+            Response.End();
 
+            return RedirectToAction("BaoCao");
+        }
     }
 }
