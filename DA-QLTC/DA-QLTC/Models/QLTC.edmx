@@ -12,6 +12,7 @@
           <EntitySet Name="DM_TU_DIEN" EntityType="QLTC_MVCModel.Store.DM_TU_DIEN" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="GD_THU_CHI" EntityType="QLTC_MVCModel.Store.GD_THU_CHI" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LOG" EntityType="QLTC_MVCModel.Store.LOG" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RPT_BAO_CAO_LICH_SU_GD" EntityType="QLTC_MVCModel.Store.RPT_BAO_CAO_LICH_SU_GD" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="QLTC_MVCModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="USER" EntityType="QLTC_MVCModel.Store.USER" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_DM_QUY_DM_DVT" Association="QLTC_MVCModel.Store.FK_DM_QUY_DM_DVT">
@@ -111,6 +112,20 @@
           <Property Name="TIME" Type="datetime" Nullable="false" />
           <Property Name="ACTION" Type="nvarchar" Nullable="false" MaxLength="250" />
           <Property Name="GHI_CHU" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="RPT_BAO_CAO_LICH_SU_GD">
+          <Key>
+            <PropertyRef Name="STT" />
+          </Key>
+          <Property Name="Ngày giao dịch" Type="datetime" />
+          <Property Name="Tên giao dịch" Type="nvarchar" MaxLength="250" />
+          <Property Name="Danh mục thu/chi" Type="nvarchar" MaxLength="250" />
+          <Property Name="Loại giao dịch" Type="nvarchar" MaxLength="50" />
+          <Property Name="Số tiền" Type="numeric" />
+          <Property Name="Đơn vị tính" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quỹ giao dịch" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ghi chú" Type="nvarchar" MaxLength="250" />
+          <Property Name="STT" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -276,6 +291,7 @@
             <End Role="USER" EntitySet="USERs" />
             <End Role="LOG" EntitySet="LOGs" />
           </AssociationSet>
+          <EntitySet Name="RPT_BAO_CAO_LICH_SU_GD" EntityType="QLTC_MVCModel.RPT_BAO_CAO_LICH_SU_GD" />
         </EntityContainer>
         <EntityType Name="DM_DVT">
           <Key>
@@ -477,6 +493,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="RPT_BAO_CAO_LICH_SU_GD">
+          <Key>
+            <PropertyRef Name="STT" />
+          </Key>
+          <Property Type="DateTime" Name="Ngày_giao_dịch" Precision="3" />
+          <Property Type="String" Name="Tên_giao_dịch" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Danh_mục_thu_chi" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Loại_giao_dịch" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Số_tiền" Precision="18" Scale="0" />
+          <Property Type="String" Name="Đơn_vị_tính" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Quỹ_giao_dịch" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ghi_chú" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="STT" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -576,6 +606,21 @@
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="FACEBOOK" ColumnName="FACEBOOK" />
                 <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPT_BAO_CAO_LICH_SU_GD">
+            <EntityTypeMapping TypeName="QLTC_MVCModel.RPT_BAO_CAO_LICH_SU_GD">
+              <MappingFragment StoreEntitySet="RPT_BAO_CAO_LICH_SU_GD">
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="Ghi_chú" ColumnName="Ghi chú" />
+                <ScalarProperty Name="Quỹ_giao_dịch" ColumnName="Quỹ giao dịch" />
+                <ScalarProperty Name="Đơn_vị_tính" ColumnName="Đơn vị tính" />
+                <ScalarProperty Name="Số_tiền" ColumnName="Số tiền" />
+                <ScalarProperty Name="Loại_giao_dịch" ColumnName="Loại giao dịch" />
+                <ScalarProperty Name="Danh_mục_thu_chi" ColumnName="Danh mục thu/chi" />
+                <ScalarProperty Name="Tên_giao_dịch" ColumnName="Tên giao dịch" />
+                <ScalarProperty Name="Ngày_giao_dịch" ColumnName="Ngày giao dịch" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

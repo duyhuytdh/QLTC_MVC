@@ -214,6 +214,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLTC.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\RPT_BAO_CAO_LICH_SU_GD.cs">
+      <DependentUpon>QLTC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>QLTC.tt</DependentUpon>
     </Compile>

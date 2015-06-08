@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="QLTC_MVCModel.DM_THU_CHI" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QLTC_MVCModel.DM_TU_DIEN" Width="1.5" PointX="5" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLTC_MVCModel.GD_THU_CHI" Width="1.5" PointX="7.75" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLTC_MVCModel.LOG" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTC_MVCModel.LOG" Width="1.5" PointX="3.625" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QLTC_MVCModel.sysdiagram" Width="1.5" PointX="6.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QLTC_MVCModel.USER" Width="1.5" PointX="2.25" PointY="3.25" IsExpanded="true" />
         <AssociationConnector Association="QLTC_MVCModel.FK_DM_QUY_DM_DVT" ManuallyRouted="false" />
@@ -21,6 +21,7 @@
         <AssociationConnector Association="QLTC_MVCModel.FK_DM_THU_CHI_USER" ManuallyRouted="false" />
         <AssociationConnector Association="QLTC_MVCModel.FK_GD_THU_CHI_DM_THU_CHI" ManuallyRouted="false" />
         <AssociationConnector Association="QLTC_MVCModel.FK_LOG_USER" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLTC_MVCModel.RPT_BAO_CAO_LICH_SU_GD" Width="1.5" PointX="5.875" PointY="6.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

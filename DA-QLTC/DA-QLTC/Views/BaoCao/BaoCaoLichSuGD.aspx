@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <%using (Html.BeginForm("ExportData", "BaoCao", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {%>
+      {%>
     <h2 class="h2" style="text-align: center">Báo cáo Lịch sử giao dịch</h2>
     <%DateTime now = DateTime.Now;
       var startDate = new DateTime(now.Year, now.Month, 1);
@@ -18,12 +18,12 @@
         <tr>
             <td>
                 <label class="label-input-css float-left">Từ ngày</label></td>
-            <td>&nbsp;&nbsp;<input type="text" class="form-control" style="width: 100px" placeholder="Click để chọn ngày tháng" id="m_dat_tu_ngay" value="<%=str_startDate%>"/></td>
+            <td>&nbsp;&nbsp;<input type="text" class="form-control" name="txt_tu_ngay" style="width: 100px" placeholder="Click để chọn ngày tháng" id="m_dat_tu_ngay" value="<%=str_startDate%>" /></td>
             <td style="width: 20px"></td>
             <td>
                 <label class="label-input-css float-left">Đến ngày</label></td>
 
-            <td>&nbsp;&nbsp;<input type="text" class="form-control" style="width: 100px" placeholder="Click để chọn ngày tháng" id="m_dat_den_ngay" value="<%=str_endDate%>" /></td>
+            <td>&nbsp;&nbsp;<input type="text" class="form-control" name="txt_den_ngay" style="width: 100px" placeholder="Click để chọn ngày tháng" id="m_dat_den_ngay" value="<%=str_endDate%>" /></td>
         </tr>
     </table>
     <br />
@@ -34,10 +34,7 @@
                 <div style="width: 220px">
                     <label class="label-input-css float-left">Loại giao dịch</label>
                     <div class="editor-field float-right form-control">
-                        <select style="width: 100px">
-                            <option value="Thu nhập">Thu nhập</option>
-                            <option value="Chi tiêu">Chi tiêu</option>
-                        </select>
+                        <%:Html.DropDownList("cbo_loai")%>
                     </div>
                 </div>
             </td>
@@ -46,10 +43,7 @@
                 <div style="width: 270px">
                     <label class="label-input-css float-left">Quỹ giao dịch</label>
                     <div class="editor-field float-right form-control">
-                        <select style="width: 150px">
-                            <option value="Tài chính">Tài chính</option>
-                            <option value="Giáo dục">Giáo dục</option>
-                        </select>
+                        <%:Html.DropDownList("cbo_quy")%>
                     </div>
                 </div>
             </td>
@@ -58,17 +52,14 @@
                 <div style="width: 250px">
                     <label class="label-input-css float-left">Danh mục</label>
                     <div class="editor-field float-right form-control">
-                        <select style="width: 150px">
-                            <option value="Tài chính">Mua sách</option>
-                            <option value="Giáo dục">Làm partime</option>
-                        </select>
+                        <%:Html.DropDownList("cbo_danh_muc")%>
                     </div>
                 </div>
             </td>
             <td style="width: 20px"></td>
             <td style="width: 200px">
-                <input class="btn btn-sm btn-primary" type="button" value="Lọc dữ liệu" />
-                <input type="submit" name="Export" id="Export" class="btn btn-sm btn-success" value="Xuất Excel" />
+                <input class="btn btn-sm btn-primary" name="command" type="submit" id="Filter" value="Lọc dữ liệu" />
+                <input type="submit" name="command" id="Export" class="btn btn-sm btn-success" value="Xuất Excel" />
             </td>
         </tr>
     </table>

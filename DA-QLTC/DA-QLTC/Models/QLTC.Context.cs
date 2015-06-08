@@ -33,5 +33,6 @@ namespace DA_QLTC.Models
         public DbSet<LOG> LOGs { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<USER> USERs { get; set; }
+        public DbSet<RPT_BAO_CAO_LICH_SU_GD> RPT_BAO_CAO_LICH_SU_GD { get; set; }
     }
 }
