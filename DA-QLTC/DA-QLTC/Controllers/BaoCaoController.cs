@@ -52,10 +52,10 @@ namespace DA_QLTC.Controllers
         #endregion
 
         #region ActionResult
-        public ActionResult BaoCaoLichSuGD()
+        public ActionResult BaoCaoLichSuGD(List<GD_THU_CHI> ip_list_thu_chi)
         {
             decimal v_id_user = user_control.get_id_user();
-            list_thu_chi = db.GD_THU_CHI.Where(x => x.DM_THU_CHI.ID_USER == v_id_user)
+            ip_list_thu_chi = db.GD_THU_CHI.Where(x => x.DM_THU_CHI.ID_USER == v_id_user)
                                           .Include(g => g.DM_DVT)
                                           .Include(g => g.DM_QUY)
                                           .Include(g => g.DM_THU_CHI)
@@ -65,36 +65,26 @@ namespace DA_QLTC.Controllers
             load_cbo_quy();
             load_cbo_danh_muc();
 
-                //DateTime datTuNgay = Convert.ToDateTime(Request["txt_tu_ngay"].ToString(), culture);
-                //DateTime datDenNgay = Convert.ToDateTime(Request["txt_den_ngay"].ToString(), culture);
-                //decimal IdLoai = Convert.ToDecimal(Request["cbo_loai"].ToString());
-                //decimal IdQuy = Convert.ToDecimal(Request["cbo_quy"].ToString());
-                //decimal IdDanhMuc = Convert.ToDecimal(Request["cbo_danh_muc"].ToString());
-                //list_thu_chi.Where(x => x.THOI_GIAN >= datTuNgay
-                //                 && x.THOI_GIAN <= datDenNgay
-                //                 && (x.ID_QUY == IdQuy || IdQuy == -1)
-                //                 && (x.ID_THU_CHI == IdDanhMuc || IdDanhMuc == -1)
-                //                 && (x.DM_THU_CHI.ID_LOAI == IdLoai || IdLoai == -1)).ToList();
-           
 
-            return View(list_thu_chi.ToList());
+            return View(ip_list_thu_chi.ToList());
 
         }
+
 
         public ActionResult BaoCaoTheoQuy()
         {
             decimal v_id_user = user_control.get_id_user();
-            list_ten_quy = db.DM_QUY.Where(x => x.ID_USER == v_id_user).Select(x=>x.TEN).ToList();
-            list_thu_chi= db.GD_THU_CHI.Include(g => g.DM_DVT).Include(g => g.DM_QUY).Include(g => g.DM_THU_CHI).ToList();
+            list_ten_quy = db.DM_QUY.Where(x => x.ID_USER == v_id_user).Select(x => x.TEN).ToList();
+            list_thu_chi = db.GD_THU_CHI.Include(g => g.DM_DVT).Include(g => g.DM_QUY).Include(g => g.DM_THU_CHI).ToList();
             //ViewBag.list_quy = list_quy;
             //ViewBag.list_thu_chi = list_thu_chi;
-           
+
             list_bc_quy = new List<BCQuy>();
             foreach (var ten_quy in list_ten_quy)
             {
                 BCQuy i_bc_quy = new BCQuy();
                 i_bc_quy.TEN_QUY = ten_quy;
-                i_bc_quy.TONG_THU = list_thu_chi.Where(x => x.DM_QUY.TEN == ten_quy 
+                i_bc_quy.TONG_THU = list_thu_chi.Where(x => x.DM_QUY.TEN == ten_quy
                                                          && x.DM_THU_CHI.DM_TU_DIEN.TEN == "Thu nhập")
                                                 .Select(x => x.SO_TIEN).Sum();
                 i_bc_quy.TONG_CHI = list_thu_chi.Where(x => x.DM_QUY.TEN == ten_quy
@@ -116,11 +106,10 @@ namespace DA_QLTC.Controllers
             return View(list_bc_quy);
         }
 
-        public ActionResult ExportData(string command)
+        public ActionResult ExportData()
         {
-            if (command == "Xuất Excel")
-            {
                 decimal v_id_user = user_control.get_id_user();
+                string fileName = "BaoCaoTaiChinh-"+DateTime.Now.ToString("dd/MM/yyyy");
                 DateTime datTuNgay = Convert.ToDateTime(Request["txt_tu_ngay"].ToString(), culture);
                 DateTime datDenNgay = Convert.ToDateTime(Request["txt_den_ngay"].ToString(), culture);
                 decimal IdLoai = Convert.ToDecimal(Request["cbo_loai"].ToString());
@@ -140,7 +129,7 @@ namespace DA_QLTC.Controllers
                 gv.DataBind();
                 Response.ClearContent();
                 Response.Buffer = true;
-                Response.AddHeader("content-disposition", "attachment; filename=Marklist.xlsx");
+                Response.AddHeader("content-disposition", "attachment; filename="+fileName+".xls");
                 Response.ContentType = "application/ms-excel";
                 Response.Charset = "";
                 StringWriter sw = new StringWriter();
@@ -151,34 +140,63 @@ namespace DA_QLTC.Controllers
                 Response.End();
 
                 return RedirectToAction("BaoCao");
-            }
-            else if (command == "Lọc dữ liệu")
-            {
-                decimal v_id_user = user_control.get_id_user();
-                list_thu_chi = db.GD_THU_CHI.Where(x => x.DM_THU_CHI.ID_USER == v_id_user)
-                                              .Include(g => g.DM_DVT)
-                                              .Include(g => g.DM_QUY)
-                                              .Include(g => g.DM_THU_CHI)
-                                              .ToList();
-                DateTime datTuNgay = Convert.ToDateTime(Request["txt_tu_ngay"].ToString(), culture);
-                DateTime datDenNgay = Convert.ToDateTime(Request["txt_den_ngay"].ToString(), culture);
-                decimal IdLoai = Convert.ToDecimal(Request["cbo_loai"].ToString());
-                decimal IdQuy = Convert.ToDecimal(Request["cbo_quy"].ToString());
-                decimal IdDanhMuc = Convert.ToDecimal(Request["cbo_danh_muc"].ToString());
-                list_thu_chi.Where(x => x.THOI_GIAN >= datTuNgay
-                                 && x.THOI_GIAN <= datDenNgay
-                                 && (x.ID_QUY == IdQuy || IdQuy == -1)
-                                 && (x.ID_THU_CHI == IdDanhMuc || IdDanhMuc == -1)
-                                 && (x.DM_THU_CHI.ID_LOAI == IdLoai || IdLoai == -1)).ToList();
-
-                return RedirectToAction("BaoCaoLichSuGD");
-            }
-            else
-            {
-                return RedirectToAction("BaoCaoLichSuGD");
-            }
+            
         }
- 
+
+
+        public string filterGrid(string tu_ngay, string den_ngay, decimal id_loai_giao_dich, decimal id_quy_giao_dich, decimal id_danh_muc)
+        {
+            //cho nay minh se gen grid tra ve string
+            decimal v_id_user = user_control.get_id_user();
+            list_thu_chi = db.GD_THU_CHI.Where(x => x.DM_THU_CHI.ID_USER == v_id_user)
+                                          .Include(g => g.DM_DVT)
+                                          .Include(g => g.DM_QUY)
+                                          .Include(g => g.DM_THU_CHI)
+                                          .ToList();
+            DateTime datTuNgay = Convert.ToDateTime(tu_ngay, culture);
+            DateTime datDenNgay = Convert.ToDateTime(den_ngay, culture);
+            decimal IdLoai = Convert.ToDecimal(id_loai_giao_dich);
+            decimal IdQuy = Convert.ToDecimal(id_quy_giao_dich);
+            decimal IdDanhMuc = Convert.ToDecimal(id_danh_muc);
+            list_thu_chi = list_thu_chi.Where(x => x.THOI_GIAN >= datTuNgay
+                             && x.THOI_GIAN <= datDenNgay
+                             && (x.ID_QUY == IdQuy || IdQuy == -1)
+                             && (x.ID_THU_CHI == IdDanhMuc || IdDanhMuc == -1)
+                             && (x.DM_THU_CHI.ID_LOAI == IdLoai || IdLoai == -1)).ToList();
+            string v_str_result = "";
+            foreach (var item in list_thu_chi)
+            {
+                 v_str_result +=  @"<tr>
+                 <td>"
+                    + item.THOI_GIAN.ToString("dd/MM/yyyy"
+                                                  , new System.Globalization.CultureInfo("fr-FR", true))
+                 + "</td>"
+                  + "<td>"
+                    + item.TEN_GIAO_DICH
+                 + "</td>"
+                  + "<td>"
+                    + item.DM_THU_CHI.TEN
+                 + "</td>"
+                  + "<td>"
+                    + item.DM_THU_CHI.DM_TU_DIEN.TEN
+                 + "</td>"
+                 + "<td class='format-so-tien'>"
+                    + item.SO_TIEN
+                 + "</td>"
+                 + "<td>"
+                    + item.DM_DVT.TEN
+                 + "</td>"
+                 + "<td>"
+                    + item.DM_QUY.TEN
+                 + "</td>"
+                  + "<td>"
+                    + item.GHI_CHU
+                 + "</td>"
+             + "</tr>";
+            }
+
+            return v_str_result;
+        }
         #endregion
 
         #region Private Method
@@ -186,8 +204,8 @@ namespace DA_QLTC.Controllers
         {
             List<SelectListItem> cbo_loai = new List<SelectListItem>();
             cbo_loai.Add(new SelectListItem { Text = "--Tất cả--", Value = "-1", Selected = true });
-            cbo_loai.Add(new SelectListItem { Text = "Thu nhập", Value = "1"});
-            cbo_loai.Add(new SelectListItem { Text = "Chi tiêu", Value = "2"});
+            cbo_loai.Add(new SelectListItem { Text = "Thu nhập", Value = "1" });
+            cbo_loai.Add(new SelectListItem { Text = "Chi tiêu", Value = "2" });
             ViewData["cbo_loai"] = cbo_loai;
         }
         private void load_cbo_danh_muc()

@@ -117,6 +117,7 @@
           <Key>
             <PropertyRef Name="STT" />
           </Key>
+          <Property Name="STT" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Ngày giao dịch" Type="datetime" />
           <Property Name="Tên giao dịch" Type="nvarchar" MaxLength="250" />
           <Property Name="Danh mục thu/chi" Type="nvarchar" MaxLength="250" />
@@ -125,7 +126,6 @@
           <Property Name="Đơn vị tính" Type="nvarchar" MaxLength="50" />
           <Property Name="Quỹ giao dịch" Type="nvarchar" MaxLength="50" />
           <Property Name="Ghi chú" Type="nvarchar" MaxLength="250" />
-          <Property Name="STT" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>

@@ -58,7 +58,8 @@
             </td>
             <td style="width: 20px"></td>
             <td style="width: 200px">
-                <input class="btn btn-sm btn-primary" name="command" type="submit" id="Filter" value="Lọc dữ liệu" />
+                <%--<input class="btn btn-sm btn-primary" name="command" type="submit" id="Filter" value="Lọc dữ liệu" />--%>
+                <input class="btn btn-sm btn-primary" name="command" type="button" onclick="loc_du_lieu()" id="Submit1" value="Lọc dữ liệu" />
                 <input type="submit" name="command" id="Export" class="btn btn-sm btn-success" value="Xuất Excel" />
             </td>
         </tr>
@@ -89,7 +90,8 @@
                { %>
             <tr>
                 <td>
-                    <%: Html.DisplayFor(modelItem => item.THOI_GIAN) %>
+                    <%= Convert.ToDateTime(item.THOI_GIAN).ToString("dd/MM/yyyy"
+                                                  ,new System.Globalization.CultureInfo("fr-FR", true))%>
                 </td>
                 <td>
                     <%: Html.DisplayFor(modelItem => item.TEN_GIAO_DICH) %>
@@ -132,5 +134,35 @@
             $('#m_dat_tu_ngay').datepicker({ dateFormat: 'dd/mm/yy' });
             $('#m_dat_den_ngay').datepicker({ dateFormat: 'dd/mm/yy' });
         });
+    </script>
+    <script type="text/javascript">
+        function loc_du_lieu() {
+            var tu_ngay = document.getElementById('m_dat_tu_ngay').value;
+            var den_ngay = document.getElementById('m_dat_den_ngay').value;
+            var id_loai_giao_dich = document.getElementById('cbo_loai').value;
+            var id_quy_giao_dich = document.getElementById('cbo_quy').value;
+            var id_danh_muc = document.getElementById('cbo_danh_muc').value;
+            $.ajax({
+                url: '/BaoCao/filterGrid',//ti nua edit cai nay nhe
+                data: {
+                    tu_ngay: tu_ngay,
+                    den_ngay: den_ngay,
+                    id_loai_giao_dich: id_loai_giao_dich,
+                    id_quy_giao_dich: id_quy_giao_dich,
+                    id_danh_muc: id_danh_muc
+                    //con thieu tham so nao ti nua em them vao sau nhe
+                },
+                type: 'post',
+                datatype: 'text',
+                error: function () {
+                    alert("Đã có lỗi xảy ra! Bạn vui lòng thực hiện lại thao tác!");
+                },
+                success: function (data) {
+                    //append html grid
+                    $('#tbl_bc_tong_hop tbody').empty().append(data);
+                }
+            })
+
+        }
     </script>
 </asp:Content>
